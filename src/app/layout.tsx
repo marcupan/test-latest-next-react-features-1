@@ -7,9 +7,45 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Secure Workspace',
+  title: {
+    template: '%s | Secure Workspace',
+    default: 'Secure Workspace',
+  },
   description: 'A Next.js SaaS boilerplate',
-}
+  openGraph: {
+    title: 'Secure Workspace',
+    description: 'A Next.js SaaS boilerplate',
+    siteName: 'Secure Workspace',
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_APP_URL ?? ''}/og-image.png`, // Must be an absolute URL
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Secure Workspace',
+    description: 'A Next.js SaaS boilerplate',
+    creator: process.env.NEXT_PUBLIC_TWITTER_HANDLE ?? '',
+    images: [`${process.env.NEXT_PUBLIC_APP_URL ?? ''}/og-image.png`], // Must be an absolute URL
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+import { Suspense } from 'react';
+import { JsonLd } from '@/shared/ui/JsonLd';
 
 export default function RootLayout({
   children,
@@ -19,6 +55,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning>
+        <Suspense fallback={null}>
+          <JsonLd />
+        </Suspense>
         {children}
         <div id="modal-root" />
       </body>
