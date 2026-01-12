@@ -1,0 +1,2070 @@
+{
+  "statistics": {
+    "detectionDate": "2026-01-10T10:12:41.134Z",
+    "formats": {
+      "javascript": {
+        "sources": {
+          "src/app/(authed)/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx": {
+            "lines": 1,
+            "tokens": 27,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx": {
+            "lines": 1,
+            "tokens": 27,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/projects/[projectId]/tasks/[taskId]/page.tsx": {
+            "lines": 7,
+            "tokens": 78,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/projects/[projectId]/page.tsx": {
+            "lines": 46,
+            "tokens": 349,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/dashboard/audit-log/page.tsx": {
+            "lines": 33,
+            "tokens": 267,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/share/[token]/page.tsx": {
+            "lines": 0,
+            "tokens": 5,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(public)/login/page.tsx": {
+            "lines": 107,
+            "tokens": 618,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/projects/page.tsx": {
+            "lines": 0,
+            "tokens": 3,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/projects/ProjectsClientPage.tsx": {
+            "lines": 44,
+            "tokens": 316,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/ui/modal.tsx": {
+            "lines": 12,
+            "tokens": 73,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/ui/FormFieldError.tsx": {
+            "lines": 0,
+            "tokens": 3,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/ui/AppHeader.tsx": {
+            "lines": 0,
+            "tokens": 3,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/sharing/ShareButton.tsx": {
+            "lines": 23,
+            "tokens": 123,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/task-details.tsx": {
+            "lines": 11,
+            "tokens": 100,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/TaskList.tsx": {
+            "lines": 44,
+            "tokens": 320,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/TaskItem.tsx": {
+            "lines": 6,
+            "tokens": 41,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/ProjectItem.tsx": {
+            "lines": 7,
+            "tokens": 84,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/comments/comments.tsx": {
+            "lines": 69,
+            "tokens": 567,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/comments/CommentItem.tsx": {
+            "lines": 2,
+            "tokens": 15,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/attachments/attachments.tsx": {
+            "lines": 54,
+            "tokens": 386,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/layout.tsx": {
+            "lines": 0,
+            "tokens": 3,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/layout.tsx": {
+            "lines": 0,
+            "tokens": 5,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/global-error.tsx": {
+            "lines": 0,
+            "tokens": 10,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/error.tsx": {
+            "lines": 3,
+            "tokens": 14,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "postcss.config.mjs": {
+            "lines": 6,
+            "tokens": 33,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "jest.config.mjs": {
+            "lines": 18,
+            "tokens": 92,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "eslint.config.mjs": {
+            "lines": 48,
+            "tokens": 299,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 542,
+          "tokens": 3861,
+          "sources": 27,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "tsx": {
+        "sources": {
+          "src/app/(authed)/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx": {
+            "lines": 21,
+            "tokens": 168,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 21,
+            "duplicatedTokens": 168,
+            "percentage": 100,
+            "percentageTokens": 100,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx": {
+            "lines": 21,
+            "tokens": 168,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 21,
+            "duplicatedTokens": 168,
+            "percentage": 100,
+            "percentageTokens": 100,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/projects/[projectId]/tasks/[taskId]/page.tsx": {
+            "lines": 47,
+            "tokens": 359,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/projects/[projectId]/page.tsx": {
+            "lines": 68,
+            "tokens": 537,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/dashboard/audit-log/page.tsx": {
+            "lines": 79,
+            "tokens": 528,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/share/[token]/page.tsx": {
+            "lines": 97,
+            "tokens": 763,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(public)/login/page.tsx": {
+            "lines": 159,
+            "tokens": 986,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/projects/page.tsx": {
+            "lines": 8,
+            "tokens": 64,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/projects/ProjectsClientPage.tsx": {
+            "lines": 86,
+            "tokens": 686,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/dashboard/page.tsx": {
+            "lines": 7,
+            "tokens": 65,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/@modal/default.tsx": {
+            "lines": 3,
+            "tokens": 20,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/ui/modal.tsx": {
+            "lines": 73,
+            "tokens": 468,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/ui/FormFieldError.tsx": {
+            "lines": 20,
+            "tokens": 166,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/ui/AppHeader.tsx": {
+            "lines": 46,
+            "tokens": 332,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/sharing/ShareButton.tsx": {
+            "lines": 68,
+            "tokens": 487,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/task-details.tsx": {
+            "lines": 58,
+            "tokens": 445,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/TaskList.tsx": {
+            "lines": 76,
+            "tokens": 581,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/TaskItem.tsx": {
+            "lines": 52,
+            "tokens": 328,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/ProjectItem.tsx": {
+            "lines": 46,
+            "tokens": 314,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/ProjectContext.tsx": {
+            "lines": 18,
+            "tokens": 118,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/comments/comments.tsx": {
+            "lines": 94,
+            "tokens": 756,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/comments/CommentItem.tsx": {
+            "lines": 39,
+            "tokens": 319,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/attachments/attachments.tsx": {
+            "lines": 152,
+            "tokens": 1190,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/(authed)/layout.tsx": {
+            "lines": 26,
+            "tokens": 188,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/page.tsx": {
+            "lines": 12,
+            "tokens": 85,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/not-found.tsx": {
+            "lines": 14,
+            "tokens": 123,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/loading.tsx": {
+            "lines": 7,
+            "tokens": 51,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/layout.tsx": {
+            "lines": 26,
+            "tokens": 191,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/global-error.tsx": {
+            "lines": 24,
+            "tokens": 162,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/error.tsx": {
+            "lines": 37,
+            "tokens": 233,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 1484,
+          "tokens": 10881,
+          "sources": 30,
+          "clones": 1,
+          "duplicatedLines": 21,
+          "duplicatedTokens": 168,
+          "percentage": 1.42,
+          "percentageTokens": 1.54,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "typescript": {
+        "sources": {
+          "src/app/api/uploads/[attachmentId]/route.ts": {
+            "lines": 69,
+            "tokens": 613,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 10,
+            "duplicatedTokens": 108,
+            "percentage": 14.49,
+            "percentageTokens": 17.62,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/api/health/db/route.ts": {
+            "lines": 41,
+            "tokens": 392,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/api/uploads/route.ts": {
+            "lines": 107,
+            "tokens": 958,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 10,
+            "duplicatedTokens": 108,
+            "percentage": 9.35,
+            "percentageTokens": 11.27,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/api/csp-reports/route.ts": {
+            "lines": 6,
+            "tokens": 78,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/types/index.ts": {
+            "lines": 34,
+            "tokens": 200,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/lib/utils.ts": {
+            "lines": 13,
+            "tokens": 101,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/db/types.ts": {
+            "lines": 139,
+            "tokens": 912,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/db/seed.ts": {
+            "lines": 144,
+            "tokens": 1155,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/db/reset.ts": {
+            "lines": 66,
+            "tokens": 398,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/db/migrate.ts": {
+            "lines": 102,
+            "tokens": 722,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/db/index.ts": {
+            "lines": 47,
+            "tokens": 274,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/sharing/actions.ts": {
+            "lines": 110,
+            "tokens": 892,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 44,
+            "duplicatedTokens": 346,
+            "percentage": 40,
+            "percentageTokens": 38.79,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/data.ts": {
+            "lines": 101,
+            "tokens": 847,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/projects/actions.ts": {
+            "lines": 219,
+            "tokens": 1824,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/comments/data.ts": {
+            "lines": 32,
+            "tokens": 303,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/comments/actions.ts": {
+            "lines": 105,
+            "tokens": 873,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/auth/actions.ts": {
+            "lines": 168,
+            "tokens": 1310,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/audit-log/data.ts": {
+            "lines": 35,
+            "tokens": 290,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/attachments/data.ts": {
+            "lines": 28,
+            "tokens": 279,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/features/attachments/actions.ts": {
+            "lines": 45,
+            "tokens": 383,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/lib/crypto.ts": {
+            "lines": 40,
+            "tokens": 286,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/lib/crypto.test.ts": {
+            "lines": 28,
+            "tokens": 250,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/lib/auth.ts": {
+            "lines": 201,
+            "tokens": 1543,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/lib/audit-log.ts": {
+            "lines": 25,
+            "tokens": 188,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/proxy.ts": {
+            "lines": 61,
+            "tokens": 426,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "e2e/login.spec.ts": {
+            "lines": 11,
+            "tokens": 98,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "e2e/global.setup.ts": {
+            "lines": 14,
+            "tokens": 102,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "playwright.config.ts": {
+            "lines": 30,
+            "tokens": 217,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "next.config.ts": {
+            "lines": 88,
+            "tokens": 495,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "next-env.d.ts": {
+            "lines": 5,
+            "tokens": 12,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 2114,
+          "tokens": 16421,
+          "sources": 30,
+          "clones": 2,
+          "duplicatedLines": 32,
+          "duplicatedTokens": 281,
+          "percentage": 1.51,
+          "percentageTokens": 1.71,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "sql": {
+        "sources": {
+          "src/shared/db/migrations/0002_fix_missing_core_tables.sql": {
+            "lines": 173,
+            "tokens": 1790,
+            "sources": 1,
+            "clones": 11,
+            "duplicatedLines": 94,
+            "duplicatedTokens": 1229,
+            "percentage": 54.34,
+            "percentageTokens": 68.66,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/db/migrations/0001_initial_schema.sql": {
+            "lines": 146,
+            "tokens": 1427,
+            "sources": 1,
+            "clones": 7,
+            "duplicatedLines": 66,
+            "duplicatedTokens": 837,
+            "percentage": 45.21,
+            "percentageTokens": 58.65,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 319,
+          "tokens": 3217,
+          "sources": 2,
+          "clones": 9,
+          "duplicatedLines": 80,
+          "duplicatedTokens": 1033,
+          "percentage": 25.08,
+          "percentageTokens": 32.11,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "css": {
+        "sources": {
+          "src/app/globals.css": {
+            "lines": 25,
+            "tokens": 145,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 25,
+          "tokens": 145,
+          "sources": 1,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "markup": {
+        "sources": {
+          ".idea/inspectionProfiles/Project_Default.xml": {
+            "lines": 5,
+            "tokens": 76,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/workspace.xml": {
+            "lines": 238,
+            "tokens": 2613,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/vcs.xml": {
+            "lines": 5,
+            "tokens": 47,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/sqldialects.xml": {
+            "lines": 10,
+            "tokens": 138,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/prettier.xml": {
+            "lines": 6,
+            "tokens": 66,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/modules.xml": {
+            "lines": 7,
+            "tokens": 58,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/material_theme_project_new.xml": {
+            "lines": 16,
+            "tokens": 154,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/git_toolbox_prj.xml": {
+            "lines": 14,
+            "tokens": 118,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/data_source_mapping.xml": {
+            "lines": 5,
+            "tokens": 48,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/dataSources.xml": {
+            "lines": 16,
+            "tokens": 167,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".idea/dataSources.local.xml": {
+            "lines": 19,
+            "tokens": 221,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 341,
+          "tokens": 3706,
+          "sources": 11,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "markdown": {
+        "sources": {
+          "docs/next-steps.md": {
+            "lines": 52,
+            "tokens": 1146,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "docs/MANUAL_TESTING.md": {
+            "lines": 56,
+            "tokens": 974,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "docs/07-quality-and-checks.md": {
+            "lines": 92,
+            "tokens": 1042,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "docs/05-checklist.md": {
+            "lines": 130,
+            "tokens": 728,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "docs/04-performance.md": {
+            "lines": 88,
+            "tokens": 1266,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "docs/03-security.md": {
+            "lines": 60,
+            "tokens": 1362,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "docs/02-architecture.md": {
+            "lines": 85,
+            "tokens": 1491,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "docs/01-setup.md": {
+            "lines": 63,
+            "tokens": 465,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "docs/00-overview.md": {
+            "lines": 28,
+            "tokens": 413,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 16,
+            "duplicatedTokens": 257,
+            "percentage": 57.14,
+            "percentageTokens": 62.23,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "README.md": {
+            "lines": 57,
+            "tokens": 367,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "PROJECT_OVERVIEW.md": {
+            "lines": 20,
+            "tokens": 328,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 42,
+            "duplicatedTokens": 592,
+            "percentage": 210,
+            "percentageTokens": 180.49,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "GEMINI.md": {
+            "lines": 93,
+            "tokens": 794,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 26,
+            "duplicatedTokens": 335,
+            "percentage": 27.96,
+            "percentageTokens": 42.19,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 824,
+          "tokens": 10376,
+          "sources": 12,
+          "clones": 2,
+          "duplicatedLines": 42,
+          "duplicatedTokens": 592,
+          "percentage": 5.1,
+          "percentageTokens": 5.71,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "json": {
+        "sources": {
+          "tsconfig.json": {
+            "lines": 45,
+            "tokens": 233,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "package.json": {
+            "lines": 69,
+            "tokens": 462,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "knip.json": {
+            "lines": 6,
+            "tokens": 22,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".prettierrc.json": {
+            "lines": 14,
+            "tokens": 97,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          ".jscpd.json": {
+            "lines": 10,
+            "tokens": 39,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 144,
+          "tokens": 853,
+          "sources": 5,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      }
+    },
+    "total": {
+      "lines": 5793,
+      "tokens": 49460,
+      "sources": 118,
+      "clones": 14,
+      "duplicatedLines": 175,
+      "duplicatedTokens": 2074,
+      "percentage": 3.02,
+      "percentageTokens": 4.19,
+      "newDuplicatedLines": 0,
+      "newClones": 0
+    }
+  },
+  "duplicates": [
+    {
+      "format": "tsx",
+      "lines": 22,
+      "fragment": "import { Suspense } from 'react'\nimport TaskDetails from '@/features/projects/task-details'\nimport { Modal } from '@/shared/ui/modal'\n\ntype PageProps = {\n  params: Promise<{\n    taskId: string\n    projectId: string\n  }>\n}\n\nexport default async function TaskModal({ params }: PageProps) {\n  const { taskId, projectId } = await params\n\n  return (\n    <Modal>\n      <Suspense fallback={<div>Loading task...</div>}>\n        <TaskDetails taskId={taskId} projectId={projectId} />\n      </Suspense>\n    </Modal>\n  )\n}",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/app/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx",
+        "start": 1,
+        "end": 22,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 22,
+          "column": 2,
+          "position": 168
+        }
+      },
+      "secondFile": {
+        "name": "src/app/(authed)/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx",
+        "start": 1,
+        "end": 22,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 22,
+          "column": 2,
+          "position": 168
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 8,
+      "fragment": ",\n  organization_id UUID NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,\n  created_by_id UUID NOT NULL REFERENCES users(id) ON DELETE RESTRICT,\n  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX IF NOT EXISTS tasks_project_id_idx",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 103,
+        "end": 110,
+        "startLoc": {
+          "line": 103,
+          "column": 8,
+          "position": 930
+        },
+        "endLoc": {
+          "line": 110,
+          "column": 21,
+          "position": 1023
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 78,
+        "end": 85,
+        "startLoc": {
+          "line": 78,
+          "column": 5,
+          "position": 660
+        },
+        "endLoc": {
+          "line": 85,
+          "column": 29,
+          "position": 753
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 8,
+      "fragment": "NOT NULL,\n  task_id UUID NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,\n  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,\n  organization_id UUID NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,\n  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX IF NOT EXISTS attachments_task_id_idx",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 142,
+        "end": 149,
+        "startLoc": {
+          "line": 142,
+          "column": 2,
+          "position": 1369
+        },
+        "endLoc": {
+          "line": 149,
+          "column": 24,
+          "position": 1472
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 127,
+        "end": 134,
+        "startLoc": {
+          "line": 127,
+          "column": 2,
+          "position": 1178
+        },
+        "endLoc": {
+          "line": 134,
+          "column": 21,
+          "position": 1281
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 10,
+      "fragment": "users (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    email VARCHAR(255) UNIQUE NOT NULL,\n    password_hash VARCHAR(255) NOT NULL,\n    salt VARCHAR(255) NOT NULL,\n    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0001_initial_schema.sql",
+        "start": 29,
+        "end": 38,
+        "startLoc": {
+          "line": 29,
+          "column": 2,
+          "position": 178
+        },
+        "endLoc": {
+          "line": 38,
+          "column": 7,
+          "position": 274
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 39,
+        "end": 48,
+        "startLoc": {
+          "line": 39,
+          "column": 2,
+          "position": 257
+        },
+        "endLoc": {
+          "line": 48,
+          "column": 3,
+          "position": 353
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 10,
+      "fragment": "projects (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    name VARCHAR(255) NOT NULL,\n    organization_id UUID NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,\n    created_by_id UUID NOT NULL REFERENCES users(id) ON DELETE RESTRICT,\n    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX ON",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0001_initial_schema.sql",
+        "start": 60,
+        "end": 69,
+        "startLoc": {
+          "line": 60,
+          "column": 2,
+          "position": 475
+        },
+        "endLoc": {
+          "line": 69,
+          "column": 3,
+          "position": 593
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 76,
+        "end": 85,
+        "startLoc": {
+          "line": 76,
+          "column": 2,
+          "position": 629
+        },
+        "endLoc": {
+          "line": 85,
+          "column": 3,
+          "position": 747
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 8,
+      "fragment": "project_id UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,\n    organization_id UUID NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,\n    created_by_id UUID NOT NULL REFERENCES users(id) ON DELETE RESTRICT,\n    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX ON",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0001_initial_schema.sql",
+        "start": 81,
+        "end": 88,
+        "startLoc": {
+          "line": 81,
+          "column": 5,
+          "position": 685
+        },
+        "endLoc": {
+          "line": 88,
+          "column": 3,
+          "position": 792
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 103,
+        "end": 110,
+        "startLoc": {
+          "line": 103,
+          "column": 3,
+          "position": 910
+        },
+        "endLoc": {
+          "line": 110,
+          "column": 3,
+          "position": 1017
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 10,
+      "fragment": "comments (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    body TEXT NOT NULL,\n    task_id UUID NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,\n    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,\n    organization_id UUID NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,\n    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX ON",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0001_initial_schema.sql",
+        "start": 98,
+        "end": 107,
+        "startLoc": {
+          "line": 98,
+          "column": 2,
+          "position": 848
+        },
+        "endLoc": {
+          "line": 107,
+          "column": 3,
+          "position": 970
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 125,
+        "end": 134,
+        "startLoc": {
+          "line": 125,
+          "column": 2,
+          "position": 1153
+        },
+        "endLoc": {
+          "line": 134,
+          "column": 3,
+          "position": 1275
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 13,
+      "fragment": "attachments (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    filename VARCHAR(255) NOT NULL,\n    storage_path VARCHAR(255) NOT NULL,\n    file_type VARCHAR(100) NOT NULL,\n    file_size_bytes BIGINT NOT NULL,\n    task_id UUID NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,\n    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,\n    organization_id UUID NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,\n    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX ON attachments",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0001_initial_schema.sql",
+        "start": 110,
+        "end": 122,
+        "startLoc": {
+          "line": 110,
+          "column": 2,
+          "position": 986
+        },
+        "endLoc": {
+          "line": 122,
+          "column": 12,
+          "position": 1149
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 137,
+        "end": 107,
+        "startLoc": {
+          "line": 137,
+          "column": 2,
+          "position": 1305
+        },
+        "endLoc": {
+          "line": 107,
+          "column": 9,
+          "position": 972
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 12,
+      "fragment": "share_tokens (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    token_hash VARCHAR(255) UNIQUE NOT NULL,\n    project_id UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,\n    organization_id UUID NOT NULL REFERENCES organizations(id) ON DELETE CASCADE,\n    created_by_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,\n    expires_at TIMESTAMPTZ,\n    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\n-- Audit Log\nCREATE TABLE audit_log",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0001_initial_schema.sql",
+        "start": 125,
+        "end": 136,
+        "startLoc": {
+          "line": 125,
+          "column": 2,
+          "position": 1163
+        },
+        "endLoc": {
+          "line": 136,
+          "column": 10,
+          "position": 1298
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 152,
+        "end": 163,
+        "startLoc": {
+          "line": 152,
+          "column": 2,
+          "position": 1496
+        },
+        "endLoc": {
+          "line": 163,
+          "column": 3,
+          "position": 1631
+        }
+      }
+    },
+    {
+      "format": "sql",
+      "lines": 10,
+      "fragment": "audit_log (\n    id BIGSERIAL PRIMARY KEY,\n    organization_id UUID REFERENCES organizations(id) ON DELETE CASCADE,\n    user_id UUID REFERENCES users(id) ON DELETE SET NULL,\n    action VARCHAR(255) NOT NULL,\n    payload JSONB,\n    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX ON",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/shared/db/migrations/0001_initial_schema.sql",
+        "start": 136,
+        "end": 145,
+        "startLoc": {
+          "line": 136,
+          "column": 2,
+          "position": 1298
+        },
+        "endLoc": {
+          "line": 145,
+          "column": 3,
+          "position": 1394
+        }
+      },
+      "secondFile": {
+        "name": "src/shared/db/migrations/0002_fix_missing_core_tables.sql",
+        "start": 163,
+        "end": 172,
+        "startLoc": {
+          "line": 163,
+          "column": 2,
+          "position": 1637
+        },
+        "endLoc": {
+          "line": 172,
+          "column": 3,
+          "position": 1733
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 11,
+      "fragment": "})\n  } catch (error) {\n    console.error(error)\n\n    if (error instanceof Error && error.message.includes('PermissionDenied')) {\n      return NextResponse.json({ error: 'Permission denied' }, { status: 403 })\n    }\n\n    return NextResponse.json({ error: 'Server error' }, { status: 500 })\n  }\n}",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/app/api/uploads/route.ts",
+        "start": 98,
+        "end": 108,
+        "startLoc": {
+          "line": 98,
+          "column": 2,
+          "position": 850
+        },
+        "endLoc": {
+          "line": 108,
+          "column": 2,
+          "position": 958
+        }
+      },
+      "secondFile": {
+        "name": "src/app/api/uploads/[attachmentId]/route.ts",
+        "start": 60,
+        "end": 70,
+        "startLoc": {
+          "line": 60,
+          "column": 2,
+          "position": 505
+        },
+        "endLoc": {
+          "line": 70,
+          "column": 2,
+          "position": 613
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 23,
+      "fragment": "; error?: string }> {\n  const session = await getSession()\n\n  if (!session) return { error: 'Not authenticated' }\n\n  try {\n    await checkPermission(session.activeOrgId, 'update', {\n      type: 'project',\n      id: projectId,\n    })\n\n    const project = await db\n      .selectFrom('projects')\n      .select('id')\n      .where('id', '=', projectId)\n      .where('organization_id', '=', session.activeOrgId)\n      .executeTakeFirst()\n\n    if (!project) {\n      return { error: 'Project not found' }\n    }\n\n    await",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src/features/sharing/actions.ts",
+        "start": 74,
+        "end": 96,
+        "startLoc": {
+          "line": 74,
+          "column": 8,
+          "position": 586
+        },
+        "endLoc": {
+          "line": 96,
+          "column": 6,
+          "position": 759
+        }
+      },
+      "secondFile": {
+        "name": "src/features/sharing/actions.ts",
+        "start": 15,
+        "end": 37,
+        "startLoc": {
+          "line": 15,
+          "column": 7,
+          "position": 106
+        },
+        "endLoc": {
+          "line": 37,
+          "column": 47,
+          "position": 279
+        }
+      }
+    },
+    {
+      "format": "markdown",
+      "lines": 17,
+      "fragment": "intainability.\n\n## Core Features\n\n- **Authentication**: Secure user login/logout with session management.\n- **Multi-Tenancy**: Users belong to organizations, and data is isolated between tenants.\n- **Role-Based Access Control (RBAC)**: A centralized policy layer to control user permissions.\n- **Workspaces**: Projects and tasks as the core domain model.\n- **Collaboration**: Comments on tasks.\n- **File Handling**: Secure file uploads and downloads.\n- **Auditing**: A log of significant events for security and compliance.\n- **Public Sharing**: A mechanism to share resources publicly via a secure token.\n\n## Tech Stack\n\n- **Framework**: Next.js 14+ (App Router)\n- **Language**: TypeScript\n- **Database**: PostgreSQL\n- **Validation**: Zod\n- **Styling**: Tailwind CSS\n- **Dependencies**: Minimal, by design. ",
+      "tokens": 0,
+      "firstFile": {
+        "name": "PROJECT_OVERVIEW.md",
+        "start": 7,
+        "end": 23,
+        "startLoc": {
+          "line": 7,
+          "column": 1,
+          "position": 73
+        },
+        "endLoc": {
+          "line": 23,
+          "column": 11,
+          "position": 330
+        }
+      },
+      "secondFile": {
+        "name": "docs/00-overview.md",
+        "start": 11,
+        "end": 27,
+        "startLoc": {
+          "line": 11,
+          "column": 1,
+          "position": 118
+        },
+        "endLoc": {
+          "line": 27,
+          "column": 11,
+          "position": 375
+        }
+      }
+    },
+    {
+      "format": "markdown",
+      "lines": 27,
+      "fragment": "Project Overview\n\nThis is a production-grade starter project for building secure, multi-tenant SaaS applications using the Next.js App Router. It is intentionally minimal in its dependencies, focusing on the core patterns for security, performance, and maintainability.\n\n## Core Features\n\n- **Authentication**: Secure user login/logout with session management.\n- **Multi-Tenancy**: Users belong to organizations, and data is isolated between tenants.\n- **Role-Based Access Control (RBAC)**: A centralized policy layer to control user permissions.\n- **Workspaces**: Projects and tasks as the core domain model.\n- **Collaboration**: Comments on tasks.\n- **File Handling**: Secure file uploads and downloads.\n- **Auditing**: A log of significant events for security and compliance.\n- **Public Sharing**: A mechanism to share resources publicly via a secure token.\n\n## Tech Stack\n\n- **Framework**: Next.js 14+ (App Router)\n- **Language**: TypeScript\n- **Database**: PostgreSQL\n- **Validation**: Zod\n- **Styling**: Tailwind CSS\n- **Dependencies**: Minimal, by design. No ORM,",
+      "tokens": 0,
+      "firstFile": {
+        "name": "GEMINI.md",
+        "start": 3,
+        "end": 29,
+        "startLoc": {
+          "line": 3,
+          "column": 1,
+          "position": 2
+        },
+        "endLoc": {
+          "line": 29,
+          "column": 2,
+          "position": 337
+        }
+      },
+      "secondFile": {
+        "name": "PROJECT_OVERVIEW.md",
+        "start": 3,
+        "end": 31,
+        "startLoc": {
+          "line": 3,
+          "column": 1,
+          "position": 2
+        },
+        "endLoc": {
+          "line": 31,
+          "column": 3,
+          "position": 380
+        }
+      }
+    }
+  ],
+  "filename": "/Users/marcupan/WebstormProjects/practice/secure-workspace-next/node_modules/.pnpm/@jscpd+html-reporter@4.0.1/node_modules/@jscpd/html-reporter/dist/templates/main.pug"
+}

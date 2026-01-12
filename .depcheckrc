@@ -1,0 +1,11 @@
+{
+  "ignores": [
+    "prettier-plugin-tailwindcss",
+    "@tailwindcss/postcss",
+    "@types/jest",
+    "jest-environment-jsdom",
+    "postcss",
+    "prettier-plugin-organize-imports",
+    "tailwindcss"
+  ]
+}

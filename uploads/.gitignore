@@ -1,0 +1,5 @@
+# Ignore all files in this directory
+*
+
+# Keep this file so the directory is not empty
+!.gitignore

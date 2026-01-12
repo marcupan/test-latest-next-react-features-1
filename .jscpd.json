@@ -1,0 +1,11 @@
+{
+  "reporters": [
+    "html",
+    "console"
+  ],
+  "ignore": [
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/report/**"
+  ]
+}
