@@ -1,28 +1,35 @@
-import type { MetadataRoute } from 'next'
 import { db } from '@/shared/db'
- 
+import type { MetadataRoute } from 'next'
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL
+
   if (!appUrl) {
-    throw new Error('NEXT_PUBLIC_APP_URL is not defined');
+    throw new Error('NEXT_PUBLIC_APP_URL is not defined')
   }
 
-  const projects = await db.selectFrom('projects').select(['id', 'updated_at']).execute();
-  const tasks = await db.selectFrom('tasks').select(['id', 'project_id', 'updated_at']).execute();
+  const projects = await db
+    .selectFrom('projects')
+    .select(['id', 'updated_at'])
+    .execute()
+  const tasks = await db
+    .selectFrom('tasks')
+    .select(['id', 'project_id', 'updated_at'])
+    .execute()
 
   const projectUrls = projects.map((project) => ({
     url: `${appUrl}/projects/${project.id}`,
     lastModified: project.updated_at,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
-  }));
+  }))
 
   const taskUrls = tasks.map((task) => ({
     url: `${appUrl}/projects/${task.project_id}/tasks/${task.id}`,
     lastModified: task.updated_at,
     changeFrequency: 'weekly' as const,
     priority: 0.5,
-  }));
+  }))
 
   return [
     {

@@ -3,18 +3,22 @@
 import { usePathname } from 'next/navigation'
 import Script from 'next/script'
 
+import { sanitizeJsonLd } from '@/shared/lib/json-ld'
+
 const generateBreadcrumbs = (pathname: string, appUrl: string) => {
   const asPathWithoutQuery = pathname.split('?')[0]
 
   if (!asPathWithoutQuery) {
     return []
   }
+
   const asPathNestedRoutes = asPathWithoutQuery
     .split('/')
     .filter((v) => v.length > 0)
 
-  const crumblist = asPathNestedRoutes.map((subpath, idx) => {
+  const crumbList = asPathNestedRoutes.map((subpath, idx) => {
     const href = '/' + asPathNestedRoutes.slice(0, idx + 1).join('/')
+
     return {
       '@type': 'ListItem',
       position: idx + 1,
@@ -30,16 +34,19 @@ const generateBreadcrumbs = (pathname: string, appUrl: string) => {
       name: 'Home',
       item: appUrl,
     },
-    ...crumblist.slice(1),
+    ...crumbList.slice(1),
   ]
 }
 
-export function JsonLd() {
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
-  if (!appUrl) {
-    return null;
-  }
+export function JsonLdContent() {
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL
+
   const pathname = usePathname()
+
+  if (!appUrl) {
+    return null
+  }
+
   const breadcrumbs = generateBreadcrumbs(pathname, appUrl)
 
   const website = {
@@ -60,12 +67,16 @@ export function JsonLd() {
       <Script
         id="json-ld-website"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(sanitizeJsonLd(website)),
+        }}
       />
       <Script
         id="json-ld-breadcrumb"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbList) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(sanitizeJsonLd(breadcrumbList)),
+        }}
       />
     </>
   )

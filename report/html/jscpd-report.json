@@ -1,12 +1,12 @@
 {
   "statistics": {
-    "detectionDate": "2026-01-10T10:12:41.134Z",
+    "detectionDate": "2026-01-12T12:06:19.143Z",
     "formats": {
       "javascript": {
         "sources": {
           "src/app/(authed)/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx": {
-            "lines": 1,
-            "tokens": 27,
+            "lines": 0,
+            "tokens": 9,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -16,9 +16,21 @@
             "newDuplicatedLines": 0,
             "newClones": 0
           },
-          "src/app/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx": {
-            "lines": 1,
-            "tokens": 27,
+          "src/app/@modal/(...)projects/[projectId]/tasks/[taskId]/page.tsx": {
+            "lines": 0,
+            "tokens": 9,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/@modal/(...)projects/[projectId]/tasks/[taskId]/error.tsx": {
+            "lines": 0,
+            "tokens": 11,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -124,6 +136,18 @@
             "newDuplicatedLines": 0,
             "newClones": 0
           },
+          "src/shared/ui/JsonLd.tsx": {
+            "lines": 9,
+            "tokens": 57,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
           "src/shared/ui/FormFieldError.tsx": {
             "lines": 0,
             "tokens": 3,
@@ -172,6 +196,18 @@
             "newDuplicatedLines": 0,
             "newClones": 0
           },
+          "src/features/projects/TaskModalContent.tsx": {
+            "lines": 1,
+            "tokens": 27,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
           "src/features/projects/TaskList.tsx": {
             "lines": 44,
             "tokens": 320,
@@ -185,8 +221,8 @@
             "newClones": 0
           },
           "src/features/projects/TaskItem.tsx": {
-            "lines": 6,
-            "tokens": 41,
+            "lines": 7,
+            "tokens": 47,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -257,8 +293,8 @@
             "newClones": 0
           },
           "src/app/layout.tsx": {
-            "lines": 0,
-            "tokens": 5,
+            "lines": 1,
+            "tokens": 18,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -330,9 +366,9 @@
           }
         },
         "total": {
-          "lines": 542,
-          "tokens": 3861,
-          "sources": 27,
+          "lines": 552,
+          "tokens": 3939,
+          "sources": 30,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
@@ -345,32 +381,44 @@
       "tsx": {
         "sources": {
           "src/app/(authed)/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx": {
-            "lines": 21,
-            "tokens": 168,
+            "lines": 18,
+            "tokens": 133,
             "sources": 1,
             "clones": 1,
-            "duplicatedLines": 21,
-            "duplicatedTokens": 168,
+            "duplicatedLines": 18,
+            "duplicatedTokens": 133,
             "percentage": 100,
             "percentageTokens": 100,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
-          "src/app/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx": {
-            "lines": 21,
-            "tokens": 168,
+          "src/app/@modal/(...)projects/[projectId]/tasks/[taskId]/page.tsx": {
+            "lines": 18,
+            "tokens": 133,
             "sources": 1,
             "clones": 1,
-            "duplicatedLines": 21,
-            "duplicatedTokens": 168,
+            "duplicatedLines": 18,
+            "duplicatedTokens": 133,
             "percentage": 100,
             "percentageTokens": 100,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/@modal/(...)projects/[projectId]/tasks/[taskId]/error.tsx": {
+            "lines": 35,
+            "tokens": 237,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
           "src/app/(authed)/projects/[projectId]/tasks/[taskId]/page.tsx": {
             "lines": 47,
-            "tokens": 359,
+            "tokens": 370,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -477,8 +525,20 @@
             "newClones": 0
           },
           "src/shared/ui/modal.tsx": {
-            "lines": 73,
-            "tokens": 468,
+            "lines": 53,
+            "tokens": 392,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/ui/JsonLd.tsx": {
+            "lines": 82,
+            "tokens": 554,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -491,6 +551,18 @@
           "src/shared/ui/FormFieldError.tsx": {
             "lines": 20,
             "tokens": 166,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/ui/DynamicJsonLd.tsx": {
+            "lines": 11,
+            "tokens": 79,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -536,9 +608,21 @@
             "newDuplicatedLines": 0,
             "newClones": 0
           },
+          "src/features/projects/TaskModalContent.tsx": {
+            "lines": 14,
+            "tokens": 116,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
           "src/features/projects/TaskList.tsx": {
-            "lines": 76,
-            "tokens": 581,
+            "lines": 77,
+            "tokens": 582,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -669,8 +753,8 @@
             "newClones": 0
           },
           "src/app/layout.tsx": {
-            "lines": 26,
-            "tokens": 191,
+            "lines": 65,
+            "tokens": 481,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -706,14 +790,14 @@
           }
         },
         "total": {
-          "lines": 1484,
-          "tokens": 10881,
-          "sources": 30,
+          "lines": 1640,
+          "tokens": 12023,
+          "sources": 34,
           "clones": 1,
-          "duplicatedLines": 21,
-          "duplicatedTokens": 168,
-          "percentage": 1.42,
-          "percentageTokens": 1.54,
+          "duplicatedLines": 18,
+          "duplicatedTokens": 133,
+          "percentage": 1.1,
+          "percentageTokens": 1.11,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
@@ -721,14 +805,14 @@
       "typescript": {
         "sources": {
           "src/app/api/uploads/[attachmentId]/route.ts": {
-            "lines": 69,
-            "tokens": 613,
+            "lines": 64,
+            "tokens": 542,
             "sources": 1,
-            "clones": 1,
-            "duplicatedLines": 10,
-            "duplicatedTokens": 108,
-            "percentage": 14.49,
-            "percentageTokens": 17.62,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
@@ -745,14 +829,14 @@
             "newClones": 0
           },
           "src/app/api/uploads/route.ts": {
-            "lines": 107,
-            "tokens": 958,
+            "lines": 102,
+            "tokens": 889,
             "sources": 1,
-            "clones": 1,
-            "duplicatedLines": 10,
-            "duplicatedTokens": 108,
-            "percentage": 9.35,
-            "percentageTokens": 11.27,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
@@ -783,6 +867,18 @@
           "src/shared/lib/utils.ts": {
             "lines": 13,
             "tokens": 101,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/shared/lib/json-ld.ts": {
+            "lines": 32,
+            "tokens": 308,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -853,20 +949,20 @@
             "newClones": 0
           },
           "src/features/sharing/actions.ts": {
-            "lines": 110,
-            "tokens": 892,
+            "lines": 111,
+            "tokens": 896,
             "sources": 1,
-            "clones": 2,
-            "duplicatedLines": 44,
-            "duplicatedTokens": 346,
-            "percentage": 40,
-            "percentageTokens": 38.79,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
           },
           "src/features/projects/data.ts": {
-            "lines": 101,
-            "tokens": 847,
+            "lines": 123,
+            "tokens": 1019,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -1008,6 +1104,42 @@
             "newDuplicatedLines": 0,
             "newClones": 0
           },
+          "src/lib/api-helpers.ts": {
+            "lines": 11,
+            "tokens": 128,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/sitemap.ts": {
+            "lines": 55,
+            "tokens": 452,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/app/robots.ts": {
+            "lines": 16,
+            "tokens": 113,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
           "src/proxy.ts": {
             "lines": 61,
             "tokens": 426,
@@ -1082,14 +1214,14 @@
           }
         },
         "total": {
-          "lines": 2114,
-          "tokens": 16421,
-          "sources": 30,
-          "clones": 2,
-          "duplicatedLines": 32,
-          "duplicatedTokens": 281,
-          "percentage": 1.51,
-          "percentageTokens": 1.71,
+          "lines": 2241,
+          "tokens": 17458,
+          "sources": 34,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
@@ -1177,8 +1309,8 @@
             "newClones": 0
           },
           ".idea/workspace.xml": {
-            "lines": 238,
-            "tokens": 2613,
+            "lines": 257,
+            "tokens": 3225,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -1298,174 +1430,14 @@
           }
         },
         "total": {
-          "lines": 341,
-          "tokens": 3706,
+          "lines": 360,
+          "tokens": 4318,
           "sources": 11,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
           "percentage": 0,
           "percentageTokens": 0,
-          "newDuplicatedLines": 0,
-          "newClones": 0
-        }
-      },
-      "markdown": {
-        "sources": {
-          "docs/next-steps.md": {
-            "lines": 52,
-            "tokens": 1146,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "docs/MANUAL_TESTING.md": {
-            "lines": 56,
-            "tokens": 974,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "docs/07-quality-and-checks.md": {
-            "lines": 92,
-            "tokens": 1042,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "docs/05-checklist.md": {
-            "lines": 130,
-            "tokens": 728,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "docs/04-performance.md": {
-            "lines": 88,
-            "tokens": 1266,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "docs/03-security.md": {
-            "lines": 60,
-            "tokens": 1362,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "docs/02-architecture.md": {
-            "lines": 85,
-            "tokens": 1491,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "docs/01-setup.md": {
-            "lines": 63,
-            "tokens": 465,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "docs/00-overview.md": {
-            "lines": 28,
-            "tokens": 413,
-            "sources": 1,
-            "clones": 1,
-            "duplicatedLines": 16,
-            "duplicatedTokens": 257,
-            "percentage": 57.14,
-            "percentageTokens": 62.23,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "README.md": {
-            "lines": 57,
-            "tokens": 367,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "PROJECT_OVERVIEW.md": {
-            "lines": 20,
-            "tokens": 328,
-            "sources": 1,
-            "clones": 2,
-            "duplicatedLines": 42,
-            "duplicatedTokens": 592,
-            "percentage": 210,
-            "percentageTokens": 180.49,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          },
-          "GEMINI.md": {
-            "lines": 93,
-            "tokens": 794,
-            "sources": 1,
-            "clones": 1,
-            "duplicatedLines": 26,
-            "duplicatedTokens": 335,
-            "percentage": 27.96,
-            "percentageTokens": 42.19,
-            "newDuplicatedLines": 0,
-            "newClones": 0
-          }
-        },
-        "total": {
-          "lines": 824,
-          "tokens": 10376,
-          "sources": 12,
-          "clones": 2,
-          "duplicatedLines": 42,
-          "duplicatedTokens": 592,
-          "percentage": 5.1,
-          "percentageTokens": 5.71,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
@@ -1485,8 +1457,8 @@
             "newClones": 0
           },
           "package.json": {
-            "lines": 69,
-            "tokens": 462,
+            "lines": 71,
+            "tokens": 476,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -1534,9 +1506,49 @@
           }
         },
         "total": {
-          "lines": 144,
-          "tokens": 853,
+          "lines": 146,
+          "tokens": 867,
           "sources": 5,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "markdown": {
+        "sources": {
+          "dynamic_recommendations.md": {
+            "lines": 17,
+            "tokens": 251,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "README.md": {
+            "lines": 91,
+            "tokens": 843,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 108,
+          "tokens": 1094,
+          "sources": 2,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
@@ -1548,14 +1560,14 @@
       }
     },
     "total": {
-      "lines": 5793,
-      "tokens": 49460,
-      "sources": 118,
-      "clones": 14,
-      "duplicatedLines": 175,
-      "duplicatedTokens": 2074,
-      "percentage": 3.02,
-      "percentageTokens": 4.19,
+      "lines": 5391,
+      "tokens": 43061,
+      "sources": 119,
+      "clones": 10,
+      "duplicatedLines": 98,
+      "duplicatedTokens": 1166,
+      "percentage": 1.82,
+      "percentageTokens": 2.71,
       "newDuplicatedLines": 0,
       "newClones": 0
     }
@@ -1563,37 +1575,37 @@
   "duplicates": [
     {
       "format": "tsx",
-      "lines": 22,
-      "fragment": "import { Suspense } from 'react'\nimport TaskDetails from '@/features/projects/task-details'\nimport { Modal } from '@/shared/ui/modal'\n\ntype PageProps = {\n  params: Promise<{\n    taskId: string\n    projectId: string\n  }>\n}\n\nexport default async function TaskModal({ params }: PageProps) {\n  const { taskId, projectId } = await params\n\n  return (\n    <Modal>\n      <Suspense fallback={<div>Loading task...</div>}>\n        <TaskDetails taskId={taskId} projectId={projectId} />\n      </Suspense>\n    </Modal>\n  )\n}",
+      "lines": 19,
+      "fragment": "import { Modal } from '@/shared/ui/modal'\nimport TaskModalContent from '@/features/projects/TaskModalContent'\n\ntype PageProps = {\n  params: Promise<{\n    taskId: string\n    projectId: string\n  }>\n}\n\nexport default async function TaskModal({ params }: PageProps) {\n  const { taskId, projectId } = await params\n\n  return (\n    <Modal>\n      <TaskModalContent taskId={taskId} projectId={projectId} />\n    </Modal>\n  )\n}",
       "tokens": 0,
       "firstFile": {
-        "name": "src/app/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx",
+        "name": "src/app/@modal/(...)projects/[projectId]/tasks/[taskId]/page.tsx",
         "start": 1,
-        "end": 22,
+        "end": 19,
         "startLoc": {
           "line": 1,
           "column": 1,
           "position": 0
         },
         "endLoc": {
-          "line": 22,
+          "line": 19,
           "column": 2,
-          "position": 168
+          "position": 133
         }
       },
       "secondFile": {
         "name": "src/app/(authed)/@modal/(.)projects/[projectId]/tasks/[taskId]/page.tsx",
         "start": 1,
-        "end": 22,
+        "end": 19,
         "startLoc": {
           "line": 1,
           "column": 1,
           "position": 0
         },
         "endLoc": {
-          "line": 22,
+          "line": 19,
           "column": 2,
-          "position": 168
+          "position": 133
         }
       }
     },
@@ -1918,150 +1930,6 @@
           "line": 172,
           "column": 3,
           "position": 1733
-        }
-      }
-    },
-    {
-      "format": "typescript",
-      "lines": 11,
-      "fragment": "})\n  } catch (error) {\n    console.error(error)\n\n    if (error instanceof Error && error.message.includes('PermissionDenied')) {\n      return NextResponse.json({ error: 'Permission denied' }, { status: 403 })\n    }\n\n    return NextResponse.json({ error: 'Server error' }, { status: 500 })\n  }\n}",
-      "tokens": 0,
-      "firstFile": {
-        "name": "src/app/api/uploads/route.ts",
-        "start": 98,
-        "end": 108,
-        "startLoc": {
-          "line": 98,
-          "column": 2,
-          "position": 850
-        },
-        "endLoc": {
-          "line": 108,
-          "column": 2,
-          "position": 958
-        }
-      },
-      "secondFile": {
-        "name": "src/app/api/uploads/[attachmentId]/route.ts",
-        "start": 60,
-        "end": 70,
-        "startLoc": {
-          "line": 60,
-          "column": 2,
-          "position": 505
-        },
-        "endLoc": {
-          "line": 70,
-          "column": 2,
-          "position": 613
-        }
-      }
-    },
-    {
-      "format": "typescript",
-      "lines": 23,
-      "fragment": "; error?: string }> {\n  const session = await getSession()\n\n  if (!session) return { error: 'Not authenticated' }\n\n  try {\n    await checkPermission(session.activeOrgId, 'update', {\n      type: 'project',\n      id: projectId,\n    })\n\n    const project = await db\n      .selectFrom('projects')\n      .select('id')\n      .where('id', '=', projectId)\n      .where('organization_id', '=', session.activeOrgId)\n      .executeTakeFirst()\n\n    if (!project) {\n      return { error: 'Project not found' }\n    }\n\n    await",
-      "tokens": 0,
-      "firstFile": {
-        "name": "src/features/sharing/actions.ts",
-        "start": 74,
-        "end": 96,
-        "startLoc": {
-          "line": 74,
-          "column": 8,
-          "position": 586
-        },
-        "endLoc": {
-          "line": 96,
-          "column": 6,
-          "position": 759
-        }
-      },
-      "secondFile": {
-        "name": "src/features/sharing/actions.ts",
-        "start": 15,
-        "end": 37,
-        "startLoc": {
-          "line": 15,
-          "column": 7,
-          "position": 106
-        },
-        "endLoc": {
-          "line": 37,
-          "column": 47,
-          "position": 279
-        }
-      }
-    },
-    {
-      "format": "markdown",
-      "lines": 17,
-      "fragment": "intainability.\n\n## Core Features\n\n- **Authentication**: Secure user login/logout with session management.\n- **Multi-Tenancy**: Users belong to organizations, and data is isolated between tenants.\n- **Role-Based Access Control (RBAC)**: A centralized policy layer to control user permissions.\n- **Workspaces**: Projects and tasks as the core domain model.\n- **Collaboration**: Comments on tasks.\n- **File Handling**: Secure file uploads and downloads.\n- **Auditing**: A log of significant events for security and compliance.\n- **Public Sharing**: A mechanism to share resources publicly via a secure token.\n\n## Tech Stack\n\n- **Framework**: Next.js 14+ (App Router)\n- **Language**: TypeScript\n- **Database**: PostgreSQL\n- **Validation**: Zod\n- **Styling**: Tailwind CSS\n- **Dependencies**: Minimal, by design. ",
-      "tokens": 0,
-      "firstFile": {
-        "name": "PROJECT_OVERVIEW.md",
-        "start": 7,
-        "end": 23,
-        "startLoc": {
-          "line": 7,
-          "column": 1,
-          "position": 73
-        },
-        "endLoc": {
-          "line": 23,
-          "column": 11,
-          "position": 330
-        }
-      },
-      "secondFile": {
-        "name": "docs/00-overview.md",
-        "start": 11,
-        "end": 27,
-        "startLoc": {
-          "line": 11,
-          "column": 1,
-          "position": 118
-        },
-        "endLoc": {
-          "line": 27,
-          "column": 11,
-          "position": 375
-        }
-      }
-    },
-    {
-      "format": "markdown",
-      "lines": 27,
-      "fragment": "Project Overview\n\nThis is a production-grade starter project for building secure, multi-tenant SaaS applications using the Next.js App Router. It is intentionally minimal in its dependencies, focusing on the core patterns for security, performance, and maintainability.\n\n## Core Features\n\n- **Authentication**: Secure user login/logout with session management.\n- **Multi-Tenancy**: Users belong to organizations, and data is isolated between tenants.\n- **Role-Based Access Control (RBAC)**: A centralized policy layer to control user permissions.\n- **Workspaces**: Projects and tasks as the core domain model.\n- **Collaboration**: Comments on tasks.\n- **File Handling**: Secure file uploads and downloads.\n- **Auditing**: A log of significant events for security and compliance.\n- **Public Sharing**: A mechanism to share resources publicly via a secure token.\n\n## Tech Stack\n\n- **Framework**: Next.js 14+ (App Router)\n- **Language**: TypeScript\n- **Database**: PostgreSQL\n- **Validation**: Zod\n- **Styling**: Tailwind CSS\n- **Dependencies**: Minimal, by design. No ORM,",
-      "tokens": 0,
-      "firstFile": {
-        "name": "GEMINI.md",
-        "start": 3,
-        "end": 29,
-        "startLoc": {
-          "line": 3,
-          "column": 1,
-          "position": 2
-        },
-        "endLoc": {
-          "line": 29,
-          "column": 2,
-          "position": 337
-        }
-      },
-      "secondFile": {
-        "name": "PROJECT_OVERVIEW.md",
-        "start": 3,
-        "end": 31,
-        "startLoc": {
-          "line": 3,
-          "column": 1,
-          "position": 2
-        },
-        "endLoc": {
-          "line": 31,
-          "column": 3,
-          "position": 380
         }
       }
     }

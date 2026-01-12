@@ -29,7 +29,7 @@ export default function TaskItem({
   return (
     <li className="flex items-center justify-between rounded-lg border bg-white p-4">
       <div>
-        <p className="font-semibold">{task.title}</p>
+        <p className="font-semibold text-gray-500">{task.title}</p>
         <span className="rounded-full bg-gray-100 px-2 py-1 text-sm text-gray-500 capitalize">
           {task.status}
         </span>

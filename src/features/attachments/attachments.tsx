@@ -26,6 +26,7 @@ export default function Attachments({
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
     if (!file) {
       setError('Please select a file.')
       return

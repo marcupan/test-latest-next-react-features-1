@@ -24,6 +24,7 @@ async function getProjectByShareToken(token: string) {
   let validToken = null
   for (const row of allTokens) {
     const isMatch = await compare(token, row.token_hash)
+
     if (isMatch) {
       validToken = row
       break

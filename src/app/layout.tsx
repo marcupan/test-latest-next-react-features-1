@@ -42,10 +42,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-};
+}
 
-import { Suspense } from 'react';
-import { JsonLd } from '@/shared/ui/JsonLd';
+import { DynamicJsonLd } from '@/shared/ui/DynamicJsonLd'
+import { Suspense } from 'react'
 
 export default function RootLayout({
   children,
@@ -56,7 +56,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning>
         <Suspense fallback={null}>
-          <JsonLd />
+          <DynamicJsonLd />
         </Suspense>
         {children}
         <div id="modal-root" />

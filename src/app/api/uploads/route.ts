@@ -6,6 +6,7 @@ import { db } from '@/shared/db'
 
 import { recordAuditEvent } from '@/lib/audit-log'
 import { checkPermission, getSession } from '@/lib/auth'
+import { handleApiError } from '@/lib/api-helpers';
 
 const UPLOAD_DIR = join(process.cwd(), 'uploads')
 const MAX_FILE_SIZE_MB = 5
@@ -97,12 +98,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, attachmentId: newAttachment.id })
   } catch (error) {
-    console.error(error)
-
-    if (error instanceof Error && error.message.includes('PermissionDenied')) {
-      return NextResponse.json({ error: 'Permission denied' }, { status: 403 })
-    }
-
-    return NextResponse.json({ error: 'Server error' }, { status: 500 })
+    return handleApiError(error);
   }
 }

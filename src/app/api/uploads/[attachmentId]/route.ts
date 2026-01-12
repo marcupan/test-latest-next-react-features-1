@@ -5,6 +5,7 @@ import { join } from 'path'
 import { db } from '@/shared/db'
 
 import { checkPermission, getSession } from '@/lib/auth'
+import { handleApiError } from '@/lib/api-helpers'
 
 const UPLOAD_DIR = join(process.cwd(), 'uploads')
 
@@ -59,12 +60,6 @@ export async function GET(
 
     return new NextResponse(fileBuffer, { status: 200, headers })
   } catch (error) {
-    console.error(error)
-
-    if (error instanceof Error && error.message.includes('PermissionDenied')) {
-      return NextResponse.json({ error: 'Permission denied' }, { status: 403 })
-    }
-
-    return NextResponse.json({ error: 'Server error' }, { status: 500 })
+    return handleApiError(error)
   }
 }

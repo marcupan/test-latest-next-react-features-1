@@ -1,6 +1,5 @@
-import { Suspense } from 'react'
-import TaskDetails from '@/features/projects/task-details'
 import { Modal } from '@/shared/ui/modal'
+import TaskModalContent from '@/features/projects/TaskModalContent'
 
 type PageProps = {
   params: Promise<{
@@ -14,9 +13,7 @@ export default async function TaskModal({ params }: PageProps) {
 
   return (
     <Modal>
-      <Suspense fallback={<div>Loading task...</div>}>
-        <TaskDetails taskId={taskId} projectId={projectId} />
-      </Suspense>
+      <TaskModalContent taskId={taskId} projectId={projectId} />
     </Modal>
   )
 }

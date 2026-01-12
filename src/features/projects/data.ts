@@ -4,50 +4,65 @@ import { cache } from 'react'
 import { db } from '@/shared/db'
 
 import { checkPermission, getSession } from '@/lib/auth'
+type Session = Awaited<ReturnType<typeof getSession>>
 
-export const getProjects = cache(async () => {
-  const session = await getSession()
+type Project = {
+  id: string
+  name: string
+}
 
-  if (!session) return []
+async function getProjectsWithAccess(activeOrgId: string): Promise<Project[]> {
+  await checkPermission(activeOrgId, 'read', 'project')
 
-  await checkPermission(session.activeOrgId, 'read', 'project')
-
-  return await next_cache(
+  return next_cache(
     async () => {
       return db
         .selectFrom('projects')
         .select(['id', 'name'])
-        .where('organization_id', '=', session.activeOrgId)
+        .where('organization_id', '=', activeOrgId)
         .orderBy('created_at', 'desc')
         .execute()
     },
-    [`projects:${session.activeOrgId}`],
-    { tags: [`projects:${session.activeOrgId}`] },
+    [`projects:${activeOrgId}`],
+    { tags: [`projects:${activeOrgId}`] },
   )()
-})
+}
 
-export const getProject = cache(async (projectId: string) => {
-  const session = await getSession()
+async function getProjectWithAccess(
+  projectId: string,
+  activeOrgId: string,
+): Promise<Project | null> {
+  await checkPermission(activeOrgId, 'read', { type: 'project', id: projectId })
 
-  if (!session) return null
-
-  await checkPermission(session.activeOrgId, 'read', {
-    type: 'project',
-    id: projectId,
-  })
-
-  return await next_cache(
+  return next_cache(
     async () => {
-      return db
+      const project = await db
         .selectFrom('projects')
         .select(['id', 'name'])
         .where('id', '=', projectId)
-        .where('organization_id', '=', session.activeOrgId)
+        .where('organization_id', '=', activeOrgId)
         .executeTakeFirst()
+      return project || null
     },
     [`project:${projectId}`],
     { tags: [`project:${projectId}`] },
   )()
+}
+
+export const getProjects = cache(async () => {
+  const session = await getSession()
+  if (!session) {
+    return []
+  }
+  return getProjectsWithAccess(session.activeOrgId)
+})
+
+export const getProject = cache(async (projectId: string) => {
+  const session = await getSession()
+  if (!session) {
+    return null
+  }
+  return getProjectWithAccess(projectId, session.activeOrgId)
 })
 
 export const getTasks = cache(async (projectId: string) => {

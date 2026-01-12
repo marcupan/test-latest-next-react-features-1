@@ -15,7 +15,7 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const task = await getTaskDetails(params.taskId)
+  const task = await getTaskDetails(params.taskId, params.projectId)
 
   return {
     title: task?.title || 'Task',
@@ -23,8 +23,8 @@ export async function generateMetadata({
 }
 
 export default async function TaskPage({ params }: PageProps) {
-  const { taskId } = params
-  const task = await getTaskDetails(taskId)
+  const { taskId, projectId } = params
+  const task = await getTaskDetails(taskId, projectId)
 
   if (!task) {
     return <div>Task not found.</div>

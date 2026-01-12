@@ -17,18 +17,18 @@ export default function CommentItem({ comment }: { comment: Comment }) {
     }
   }
 
+  const createdAt = new Date(comment.created_at).toLocaleString()
+
   return (
     <li className="rounded-lg bg-gray-50 p-4">
       <div className="flex items-center justify-between">
         <p className="text-sm font-semibold">{comment.author_email}</p>
         <div className="flex items-center gap-4">
-          <p className="text-xs text-gray-500">
-            {new Date(comment.created_at).toLocaleString()}
-          </p>
+          <p className="text-xs text-gray-500">{createdAt}</p>
           <button
-            onClick={handleDelete}
             className="text-xs text-red-600 hover:underline"
             disabled={isPending}
+            onClick={handleDelete}
           >
             {isPending ? 'Deleting...' : 'Delete'}
           </button>
