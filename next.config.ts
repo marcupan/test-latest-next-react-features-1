@@ -68,6 +68,8 @@ const nextConfig = {
       },
     ]
   },
+  // Enable cacheComponents which includes Partial Prerendering (PPR) in Next.js 16+
+  // PPR was previously experimental.ppr but is now integrated into cacheComponents
   cacheComponents: true,
   cacheLife: {
     standard: {
@@ -83,6 +85,12 @@ const nextConfig = {
   },
   turbopack: {
     root: process.cwd(),
+  },
+  experimental: {
+    // Enable React Compiler (Forget) for automatic memoization
+    reactCompiler: true,
+    // Enable after() API for non-blocking operations
+    after: true,
   },
 }
 
