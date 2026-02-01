@@ -1,10 +1,9 @@
 import { unstable_cache as next_cache } from 'next/cache'
 import { cache } from 'react'
 
+import { getSession } from '@/lib/auth'
 import { db } from '@/shared/db'
 import type { AuditLog } from '@/shared/types'
-
-import { getSession } from '@/lib/auth'
 
 export const getAuditLog = cache(async () => {
   const session = await getSession()

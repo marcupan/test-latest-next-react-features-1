@@ -2,16 +2,17 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { memo } from 'react'
 
 import { deleteTask } from './actions'
 
-export default function TaskItem({
+const TaskItem = ({
   task,
   projectId,
 }: {
   task: { id: string; title: string; status: string }
   projectId: string
-}) {
+}) => {
   const router = useRouter()
 
   const handleDelete = async () => {
@@ -28,21 +29,22 @@ export default function TaskItem({
 
   return (
     <li className="flex items-center justify-between rounded-lg border bg-white p-4">
-      <div>
-        <p className="font-semibold text-gray-500">{task.title}</p>
+      <div className="min-w-0">
+        <p className="truncate font-semibold text-gray-500">{task.title}</p>
         <span className="rounded-full bg-gray-100 px-2 py-1 text-sm text-gray-500 capitalize">
           {task.status}
         </span>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex shrink-0 items-center gap-4">
         <Link
           href={`/projects/${projectId}/tasks/${task.id}`}
-          className="text-blue-500 hover:underline"
+          className="rounded text-blue-500 hover:underline focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         >
           View Details
         </Link>
         <button
-          className="text-sm text-red-600 hover:underline"
+          aria-label={`Delete task ${task.title}`}
+          className="rounded text-sm text-red-600 hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
           onClick={handleDelete}
         >
           Delete
@@ -51,3 +53,6 @@ export default function TaskItem({
     </li>
   )
 }
+
+// Memoize to prevent unnecessary re-renders when a parent updates
+export default memo(TaskItem)

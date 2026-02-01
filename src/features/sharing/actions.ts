@@ -1,7 +1,7 @@
 'use server'
 
 import { randomBytes } from 'crypto'
-import { revalidateTag } from 'next/cache'
+import { updateTag } from 'next/cache'
 
 import { db } from '@/shared/db'
 import { hash } from 'bcryptjs'
@@ -10,11 +10,11 @@ import { checkPermission, getSession } from '@/lib/auth'
 
 const TOKEN_BYTES = 32
 
-async function verifyProjectAccess(
+const verifyProjectAccess = async (
   projectId: string,
   session: Awaited<ReturnType<typeof getSession>>,
   permissionAction: 'read' | 'update' | 'delete',
-) {
+) => {
   if (!session) {
     throw new Error('Not authenticated')
   }
@@ -37,18 +37,21 @@ async function verifyProjectAccess(
   return project
 }
 
-function handleActionError(error: unknown, defaultMessage: string) {
+const handleActionError = (error: unknown, defaultMessage: string) => {
   console.error(error)
   const message = error instanceof Error ? error.message : defaultMessage
   return { error: message }
 }
 
-export async function createShareToken(
+export const createShareToken = async (
   projectId: string,
-): Promise<{ shareUrl?: string; error?: string }> {
+): Promise<{ shareUrl?: string; error?: string }> => {
   const session = await getSession()
   if (!session) {
-    return handleActionError(new Error('Not authenticated'), 'Not authenticated');
+    return handleActionError(
+      new Error('Not authenticated'),
+      'Not authenticated',
+    )
   }
 
   try {
@@ -74,7 +77,7 @@ export async function createShareToken(
       })
       .execute()
 
-    revalidateTag(`share_token:${projectId}`, 'standard')
+    updateTag(`share_token:${projectId}`)
 
     // This is not perfectly ideal as it depends on the base URL, but for demonstration it's ok.
     const baseUrl = process.env.VERCEL_URL
@@ -86,12 +89,15 @@ export async function createShareToken(
   }
 }
 
-export async function revokeShareToken(
+export const revokeShareToken = async (
   projectId: string,
-): Promise<{ success?: boolean; error?: string }> {
+): Promise<{ success?: boolean; error?: string }> => {
   const session = await getSession()
   if (!session) {
-    return handleActionError(new Error('Not authenticated'), 'Not authenticated');
+    return handleActionError(
+      new Error('Not authenticated'),
+      'Not authenticated',
+    )
   }
 
   try {
@@ -103,7 +109,7 @@ export async function revokeShareToken(
       .where('organization_id', '=', session.activeOrgId)
       .execute()
 
-    revalidateTag(`share_token:${projectId}`, 'standard')
+    updateTag(`share_token:${projectId}`)
 
     return { success: true }
   } catch (error: unknown) {

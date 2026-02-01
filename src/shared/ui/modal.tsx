@@ -6,33 +6,43 @@ import { createPortal } from 'react-dom'
 
 const ModalContext = createContext<{ onDismiss: () => void } | null>(null)
 
-export function Modal({ children }: { children: ReactNode }) {
+const Modal = ({ children }: { children: ReactNode }) => {
   const router = useRouter()
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
     const dialog = dialogRef.current
+
     if (dialog && !dialog.open) {
       dialog.showModal()
     }
   }, [])
 
-  function onDismiss() {
+  const onDismiss = () => {
     if (dialogRef.current?.open) {
       dialogRef.current.close()
-      router.back()
     }
   }
 
-  // Fallback to document.body if a dedicated #modal-root is not present
-  const container = document.getElementById('modal-root') ?? document.body
+  const container =
+    typeof document !== 'undefined'
+      ? (document.getElementById('modal-root') ?? document.body)
+      : null
+
+  if (!container) {
+    return null
+  }
 
   return createPortal(
-    <div className="absolute top-0 left-0 flex h-screen w-screen items-center justify-center bg-black/70">
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black/70"
+      onClick={onDismiss}
+    >
       <dialog
         ref={dialogRef}
-        className="w-1/2 rounded-xl bg-white p-8"
-        onClose={onDismiss}
+        className="relative w-1/2 rounded-xl bg-white p-8"
+        onClick={(e) => e.stopPropagation()}
+        onClose={() => router.back()}
         onCancel={(e) => {
           e.preventDefault()
           onDismiss()
@@ -43,7 +53,8 @@ export function Modal({ children }: { children: ReactNode }) {
         </ModalContext.Provider>
         <button
           onClick={onDismiss}
-          className="absolute top-2 right-2 rounded-full bg-gray-200 px-2 py-0.5"
+          aria-label="Close modal"
+          className="absolute top-2 right-2 rounded-full bg-gray-200 px-2 py-0.5 hover:bg-gray-300 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         >
           X
         </button>
@@ -52,3 +63,5 @@ export function Modal({ children }: { children: ReactNode }) {
     container,
   )
 }
+
+export { Modal }

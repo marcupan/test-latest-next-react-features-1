@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 
 import { getAuditLog } from '@/features/audit-log/data'
 
-async function AuditLogList() {
+const AuditLogList = async () => {
   const auditLog = await getAuditLog()
 
   return (
@@ -60,7 +60,7 @@ async function AuditLogList() {
   )
 }
 
-export default async function AuditLogPage() {
+const AuditLogPage = async () => {
   return (
     <div className="p-8">
       <h1 className="mb-4 text-2xl font-bold">Audit Log</h1>
@@ -78,3 +78,5 @@ export default async function AuditLogPage() {
     </div>
   )
 }
+
+export default AuditLogPage

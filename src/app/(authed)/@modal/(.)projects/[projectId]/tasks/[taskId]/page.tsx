@@ -1,5 +1,5 @@
-import { Modal } from '@/shared/ui/modal'
 import TaskModalContent from '@/features/projects/TaskModalContent'
+import { Modal } from '@/shared/ui/modal'
 
 type PageProps = {
   params: Promise<{
@@ -8,7 +8,7 @@ type PageProps = {
   }>
 }
 
-export default async function TaskModal({ params }: PageProps) {
+const TaskModal = async ({ params }: PageProps) => {
   const { taskId, projectId } = await params
 
   return (
@@ -17,3 +17,5 @@ export default async function TaskModal({ params }: PageProps) {
     </Modal>
   )
 }
+
+export default TaskModal

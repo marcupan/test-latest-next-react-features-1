@@ -12,8 +12,8 @@ const SessionPayload = z.object({
 })
 
 export function proxy(request: NextRequest) {
-  // Clone the request headers and set a new header `x-version`
   const requestHeaders = new Headers(request.headers)
+
   requestHeaders.set('x-request-path', request.nextUrl.pathname)
 
   const cookie = request.cookies.get(SESSION_COOKIE_NAME)?.value
@@ -40,7 +40,6 @@ export function proxy(request: NextRequest) {
 
   return NextResponse.next({
     request: {
-      // New request headers
       headers: requestHeaders,
     },
   })

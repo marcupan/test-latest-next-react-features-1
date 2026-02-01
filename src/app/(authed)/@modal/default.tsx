@@ -1,4 +1,5 @@
-export default function DefaultModalSlot() {
-  // Fallback content for the parallel "modal" route when no intercepting route is active
+const DefaultModalSlot = () => {
   return null
 }
+
+export default DefaultModalSlot

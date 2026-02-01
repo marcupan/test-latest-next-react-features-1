@@ -2,7 +2,7 @@ type FormFieldErrorProps = {
   error: string | string[] | undefined | null
 }
 
-export function FormFieldError({ error }: FormFieldErrorProps) {
+export const FormFieldError = ({ error }: FormFieldErrorProps) => {
   if (!error) {
     return null
   }

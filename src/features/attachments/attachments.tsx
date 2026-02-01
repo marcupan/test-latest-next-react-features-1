@@ -6,16 +6,17 @@ import { useState, type ChangeEvent, type FormEvent } from 'react'
 
 import { deleteAttachment } from './actions'
 
-export default function Attachments({
+const Attachments = ({
   taskId,
   attachments,
 }: {
   taskId: string
   attachments: Array<{ id: string; filename: string; file_type: string }>
-}) {
+}) => {
   const [file, setFile] = useState<File | null>(null)
   const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
   const router = useRouter()
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -54,13 +55,16 @@ export default function Attachments({
       router.refresh()
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : String(err)
+
       setError(message)
     } finally {
       setIsUploading(false)
       setFile(null)
+
       const fileInput = document.getElementById(
         'file-input',
       ) as HTMLInputElement
+
       if (fileInput) {
         fileInput.value = ''
       }
@@ -71,9 +75,11 @@ export default function Attachments({
     if (window.confirm('Are you sure you want to delete this attachment?')) {
       try {
         await deleteAttachment(attachmentId)
+
         router.refresh()
       } catch (err: unknown) {
         const message = err instanceof Error ? err.message : String(err)
+
         setError(message)
       }
     }
@@ -83,20 +89,29 @@ export default function Attachments({
     <div className="mt-8">
       <h3 className="mb-4 text-xl font-bold">Attachments</h3>
       <form onSubmit={handleSubmit} className="mb-6">
+        <label htmlFor="file-input" className="mb-2 block text-sm font-medium">
+          Upload File
+        </label>
         <input
           id="file-input"
+          name="file"
           type="file"
           onChange={handleFileChange}
-          className="mb-2"
+          className="mb-2 block"
         />
         <button
           type="submit"
           disabled={isUploading || !file}
-          className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:bg-gray-400"
+          aria-busy={isUploading}
+          className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:bg-gray-400"
         >
-          {isUploading ? 'Uploading...' : 'Upload File'}
+          {isUploading ? 'Uploading…' : 'Upload File'}
         </button>
-        {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
+        {error && (
+          <p className="mt-2 text-sm text-red-500" role="alert">
+            {error}
+          </p>
+        )}
       </form>
 
       <ul className="space-y-4">
@@ -114,14 +129,15 @@ export default function Attachments({
                 />
                 <a
                   href={`/api/uploads/${attachment.id}`}
-                  className="text-sm text-blue-600 hover:underline"
+                  className="rounded text-sm text-blue-600 hover:underline focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                   download
                 >
                   Download {attachment.filename}
                 </a>
                 <button
                   onClick={() => handleDelete(attachment.id)}
-                  className="ml-4 text-sm text-red-600 hover:underline"
+                  aria-label={`Delete attachment ${attachment.filename}`}
+                  className="ml-4 rounded text-sm text-red-600 hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                 >
                   Delete
                 </button>
@@ -130,14 +146,15 @@ export default function Attachments({
               <div className="flex items-center justify-between">
                 <a
                   href={`/api/uploads/${attachment.id}`}
-                  className="text-blue-600 hover:underline"
+                  className="truncate rounded text-blue-600 hover:underline focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                   download
                 >
                   {attachment.filename}
                 </a>
                 <button
                   onClick={() => handleDelete(attachment.id)}
-                  className="text-sm text-red-600 hover:underline"
+                  aria-label={`Delete attachment ${attachment.filename}`}
+                  className="ml-2 shrink-0 rounded text-sm text-red-600 hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                 >
                   Delete
                 </button>
@@ -152,3 +169,5 @@ export default function Attachments({
     </div>
   )
 }
+
+export default Attachments

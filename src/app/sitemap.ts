@@ -1,5 +1,6 @@
-import { db } from '@/shared/db'
 import type { MetadataRoute } from 'next'
+
+import { db } from '@/shared/db'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL

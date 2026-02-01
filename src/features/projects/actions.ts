@@ -1,23 +1,22 @@
 'use server'
 
 import { unlink } from 'fs/promises'
-import { revalidatePath, revalidateTag } from 'next/cache'
+import { revalidatePath, updateTag } from 'next/cache'
 import { join } from 'path'
-
-import { db } from '@/shared/db'
 import { z } from 'zod'
 
 import { recordAuditEvent } from '@/lib/audit-log'
 import { checkPermission, getSession } from '@/lib/auth'
+import { db } from '@/shared/db'
 
 const createProjectSchema = z.object({
   name: z.string().min(1, 'Project name is required'),
 })
 
-export async function createProject(
-  _prevState: { message?: z.ZodError | string },
+export const createProject = async (
+  _prevState: { message?: string },
   formData: FormData,
-): Promise<{ message?: z.ZodError | string }> {
+): Promise<{ message?: string }> => {
   const session = await getSession()
 
   if (!session) throw new Error('Not authenticated')
@@ -29,7 +28,7 @@ export async function createProject(
   )
 
   if (!result.success) {
-    return { message: result.error }
+    return { message: result.error.issues[0]?.message || 'Invalid input' }
   }
 
   const { name } = result.data
@@ -45,15 +44,15 @@ export async function createProject(
     .returning('id')
     .executeTakeFirstOrThrow()
 
-  await recordAuditEvent({
+  recordAuditEvent({
     action: 'project.create',
     userId: user.id,
     orgId: activeOrgId,
     details: { projectId: newProject.id, name },
   })
 
-  revalidateTag(`projects:${activeOrgId}`, 'standard')
-  revalidateTag('projects', 'standard')
+  updateTag(`projects:${activeOrgId}`)
+  updateTag('projects')
   revalidatePath('/projects')
 
   return {}
@@ -64,7 +63,7 @@ const createTaskSchema = z.object({
   projectId: z.uuid(),
 })
 
-export async function createTask(formData: FormData) {
+export const createTask = async (formData: FormData) => {
   const session = await getSession()
 
   if (!session) throw new Error('Not authenticated')
@@ -74,7 +73,7 @@ export async function createTask(formData: FormData) {
   )
 
   if (!result.success) {
-    throw new Error('Invalid input')
+    throw new Error(result.error.issues[0]?.message || 'Invalid input')
   }
 
   const { projectId, title } = result.data
@@ -105,18 +104,18 @@ export async function createTask(formData: FormData) {
     .returning('id')
     .executeTakeFirstOrThrow()
 
-  await recordAuditEvent({
+  recordAuditEvent({
     action: 'task.create',
     userId: user.id,
     orgId: activeOrgId,
     details: { taskId: newTask.id, title, projectId },
   })
 
-  revalidateTag(`tasks:${projectId}`, 'standard')
+  updateTag(`tasks:${projectId}`)
   revalidatePath(`/projects/${projectId}`)
 }
 
-export async function deleteTask(taskId: string) {
+export const deleteTask = async (taskId: string) => {
   const session = await getSession()
 
   if (!session) throw new Error('Not authenticated')
@@ -147,27 +146,38 @@ export async function deleteTask(taskId: string) {
       .where('task_id', '=', taskId)
       .execute()
 
-    for (const attachment of attachments) {
-      await unlink(join(process.cwd(), 'uploads', attachment.storage_path))
-    }
+    await Promise.all(
+      attachments.map((attachment) =>
+        unlink(join(process.cwd(), 'uploads', attachment.storage_path)).catch(
+          (err) => {
+            console.error(
+              'Failed to delete file:',
+              attachment.storage_path,
+              err,
+            )
+          },
+        ),
+      ),
+    )
 
     await trx.deleteFrom('comments').where('task_id', '=', taskId).execute()
     await trx.deleteFrom('attachments').where('task_id', '=', taskId).execute()
     await trx.deleteFrom('tasks').where('id', '=', taskId).execute()
   })
 
-  await recordAuditEvent({
+  recordAuditEvent({
     action: 'task.delete',
     userId: session.user.id,
     orgId: session.activeOrgId,
     details: { taskId },
   })
 
-  revalidateTag(`tasks:${task.project_id}`, 'standard')
+  updateTag(`tasks:${task.project_id}`)
 }
 
-export async function deleteProject(projectId: string) {
+export const deleteProject = async (projectId: string) => {
   const session = await getSession()
+
   if (!session) throw new Error('Not authenticated')
 
   const project = await db
@@ -193,28 +203,40 @@ export async function deleteProject(projectId: string) {
       .where('project_id', '=', projectId)
       .execute()
 
-    for (const task of tasks) {
-      const attachments = await trx
-        .selectFrom('attachments')
-        .select('storage_path')
-        .where('task_id', '=', task.id)
-        .execute()
+    const allAttachments = await trx
+      .selectFrom('attachments')
+      .select('storage_path')
+      .where(
+        'task_id',
+        'in',
+        tasks.map((t) => t.id),
+      )
+      .execute()
 
-      for (const attachment of attachments) {
-        await unlink(join(process.cwd(), 'uploads', attachment.storage_path))
-      }
-    }
+    await Promise.all(
+      allAttachments.map((attachment) =>
+        unlink(join(process.cwd(), 'uploads', attachment.storage_path)).catch(
+          (err) => {
+            console.error(
+              'Failed to delete file:',
+              attachment.storage_path,
+              err,
+            )
+          },
+        ),
+      ),
+    )
 
     await trx.deleteFrom('projects').where('id', '=', projectId).execute()
   })
 
-  await recordAuditEvent({
+  recordAuditEvent({
     action: 'project.delete',
     userId: session.user.id,
     orgId: session.activeOrgId,
     details: { projectId },
   })
 
-  revalidateTag(`projects:${session.activeOrgId}`, 'standard')
-  revalidateTag('projects', 'standard')
+  updateTag(`projects:${session.activeOrgId}`)
+  updateTag('projects')
 }

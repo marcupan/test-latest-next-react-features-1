@@ -4,9 +4,13 @@ import { join } from 'path'
 
 import { db } from '@/shared/db'
 
+import { handleApiError } from '@/lib/api-helpers'
 import { recordAuditEvent } from '@/lib/audit-log'
 import { checkPermission, getSession } from '@/lib/auth'
-import { handleApiError } from '@/lib/api-helpers';
+
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+export const maxDuration = 30
 
 const UPLOAD_DIR = join(process.cwd(), 'uploads')
 const MAX_FILE_SIZE_MB = 5
@@ -35,7 +39,6 @@ export async function POST(request: Request) {
     )
   }
 
-  // --- Validation ---
   if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
     return NextResponse.json(
       { error: `File size exceeds ${MAX_FILE_SIZE_MB}MB` },
@@ -50,7 +53,6 @@ export async function POST(request: Request) {
   try {
     await checkPermission(session.activeOrgId, 'create', 'attachment')
 
-    // Verify a task exists in the organization
     const task = await db
       .selectFrom('tasks')
       .select('id')
@@ -62,16 +64,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Task not found' }, { status: 404 })
     }
 
-    // --- Store the file ---
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
 
-    // Sanitize filename to remove special characters and create a unique path
     const sanitizedFilename = file.name.replace(/[^a-zA-Z0-9._-]/g, '')
     const storagePath = `${crypto.randomUUID()}-${sanitizedFilename}`
     await writeFile(join(UPLOAD_DIR, storagePath), buffer)
 
-    // --- Store metadata in DB ---
     const newAttachment = await db
       .insertInto('attachments')
       .values({
@@ -86,18 +85,15 @@ export async function POST(request: Request) {
       .returning('id')
       .executeTakeFirstOrThrow()
 
-    await recordAuditEvent({
+    recordAuditEvent({
       action: 'attachment.create',
       userId: session.user.id,
       orgId: session.activeOrgId,
       details: { attachmentId: newAttachment.id, filename: file.name, taskId },
     })
 
-    // The revalidation must happen on the client-side or via a webhook for Route Handlers
-    // We'll use a client-side router.refresh() for now.
-
     return NextResponse.json({ success: true, attachmentId: newAttachment.id })
   } catch (error) {
-    return handleApiError(error);
+    return handleApiError(error)
   }
 }

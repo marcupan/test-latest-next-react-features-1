@@ -2,15 +2,15 @@
 
 import { redirect } from 'next/navigation'
 
-import { db } from '@/shared/db'
 import { z } from 'zod'
 
 import { recordAuditEvent } from '@/lib/audit-log'
 import { createSessionCookie, deleteSession, getSession } from '@/lib/auth'
 import { hashPassword, verifyPassword } from '@/lib/crypto'
+import { db } from '@/shared/db'
 
 type AuthStateType = {
-  message?: z.ZodError | string
+  message?: string
 }
 
 const loginSchema = z.object({
@@ -18,13 +18,14 @@ const loginSchema = z.object({
   password: z.string().min(1, 'Password is required'),
 })
 
-export async function login(
+export const login = async (
   _prevState: AuthStateType,
   formData: FormData,
-): Promise<AuthStateType> {
+): Promise<AuthStateType> => {
   const result = loginSchema.safeParse(Object.fromEntries(formData.entries()))
+
   if (!result.success) {
-    return { message: result.error }
+    return { message: 'Invalid input' }
   }
 
   const { email, password } = result.data
@@ -37,7 +38,7 @@ export async function login(
       .executeTakeFirst()
 
     if (!user) {
-      await recordAuditEvent({
+      recordAuditEvent({
         action: 'user.login.failed',
         details: { email, reason: 'user_not_found' },
       })
@@ -49,7 +50,7 @@ export async function login(
     const isValid = await verifyPassword(password, saltAndHash)
 
     if (!isValid) {
-      await recordAuditEvent({
+      recordAuditEvent({
         action: 'user.login.failed',
         userId: user.id,
         details: { email, reason: 'invalid_password' },
@@ -58,7 +59,6 @@ export async function login(
       return { message: 'Invalid credentials' }
     }
 
-    // Get the user's default organization
     const org = await db
       .selectFrom('users_organizations')
       .select('organization_id')
@@ -72,20 +72,19 @@ export async function login(
 
     const orgId = org.organization_id
 
-    // Set session cookie
     await createSessionCookie(user.id, orgId)
 
-    await recordAuditEvent({
+    recordAuditEvent({
       action: 'user.login.success',
       userId: user.id,
       orgId,
     })
   } catch (error) {
     console.error(error)
+
     return { message: 'Server error' }
   }
 
-  // Redirect to dashboard on successful login
   redirect('/dashboard')
 }
 
@@ -95,14 +94,14 @@ const signupSchema = z.object({
   password: z.string().min(8, 'Password must be at least 8 characters'),
 })
 
-export async function signup(
+export const signup = async (
   _prevState: AuthStateType,
   formData: FormData,
-): Promise<AuthStateType> {
+): Promise<AuthStateType> => {
   const result = signupSchema.safeParse(Object.fromEntries(formData.entries()))
 
   if (!result.success) {
-    return { message: result.error }
+    return { message: 'Invalid input' }
   }
 
   const { orgName, email, password } = result.data
@@ -111,21 +110,18 @@ export async function signup(
 
   try {
     const { orgId, userId } = await db.transaction().execute(async (trx) => {
-      // 1. Create Organization
       const org = await trx
         .insertInto('organizations')
         .values({ name: orgName })
         .returning('id')
         .executeTakeFirstOrThrow()
 
-      // 2. Create User
       const user = await trx
         .insertInto('users')
         .values({ email, password_hash: hash, salt })
         .returning('id')
         .executeTakeFirstOrThrow()
 
-      // 3. Link User to Organization as 'admin'
       await trx
         .insertInto('users_organizations')
         .values({ user_id: user.id, organization_id: org.id, role: 'admin' })
@@ -134,29 +130,28 @@ export async function signup(
       return { orgId: org.id, userId: user.id }
     })
 
-    await recordAuditEvent({
+    recordAuditEvent({
       action: 'user.signup',
       userId,
       orgId,
       details: { orgName },
     })
 
-    // 4. Create session
     await createSessionCookie(userId, orgId)
   } catch (error) {
     console.error(error)
-    // This could be a unique constraint violation (email already exists)
+
     return { message: 'Signup failed' }
   }
 
   redirect('/dashboard')
 }
 
-export async function logout() {
+export const logout = async () => {
   const session = await getSession()
 
   if (session) {
-    await recordAuditEvent({
+    recordAuditEvent({
       action: 'user.logout',
       userId: session.user.id,
       orgId: session.activeOrgId,

@@ -1,29 +1,23 @@
-import { unstable_cache as next_cache } from 'next/cache'
-import { cache } from 'react'
-
-import { db } from '@/shared/db'
+import { cacheTag } from 'next/cache'
 
 import { getSession } from '@/lib/auth'
+import { db } from '@/shared/db'
 
-export const getAttachments = cache(async (taskId: string) => {
+export const getAttachments = async (taskId: string) => {
+  'use cache'
+
   const session = await getSession()
   if (!session) return []
 
-  const attachments = await next_cache(
-    async () => {
-      const rows = await db
-        .selectFrom('attachments')
-        .select(['id', 'filename', 'file_type'])
-        .where('task_id', '=', taskId)
-        .where('organization_id', '=', session.activeOrgId)
-        .orderBy('created_at', 'desc')
-        .execute()
+  cacheTag(`attachments:${taskId}`, `org:${session.activeOrgId}`)
 
-      return rows as Array<{ id: string; filename: string; file_type: string }>
-    },
-    [`attachments:${taskId}`],
-    { tags: [`attachments:${taskId}`] },
-  )()
+  const rows = await db
+    .selectFrom('attachments')
+    .select(['id', 'filename', 'file_type'])
+    .where('task_id', '=', taskId)
+    .where('organization_id', '=', session.activeOrgId)
+    .orderBy('created_at', 'desc')
+    .execute()
 
-  return attachments
-})
+  return rows as Array<{ id: string; filename: string; file_type: string }>
+}

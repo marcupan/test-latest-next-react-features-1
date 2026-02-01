@@ -1,10 +1,13 @@
+import 'server-only'
+
 import { cookies } from 'next/headers'
 import { cache } from 'react'
 
-import { db } from '@/shared/db'
 import type { User } from '@/shared/types'
 import { sign, verify } from 'jsonwebtoken'
 import { z } from 'zod'
+
+import { db } from '@/shared/db'
 
 const SESSION_COOKIE_NAME = 'session'
 const SESSION_DURATION_HOURS = 24
@@ -12,15 +15,12 @@ const SESSION_DURATION_HOURS = 24
 const SessionPayload = z.object({
   sessionId: z.uuid(),
   userId: z.uuid(),
-  orgId: z.uuid(), // The currently active organization
+  orgId: z.uuid(),
 })
 
 export type SessionPayload = z.infer<typeof SessionPayload>
 
-/**
- * Creates a new session in the database and returns the session ID.
- */
-async function createDbSession(userId: string): Promise<string> {
+const createDbSession = async (userId: string): Promise<string> => {
   const expiresAt = new Date(
     Date.now() + SESSION_DURATION_HOURS * 60 * 60 * 1000,
   )
@@ -34,10 +34,7 @@ async function createDbSession(userId: string): Promise<string> {
   return result.id
 }
 
-/**
- * Creates a signed JWT and sets it as a secure, HttpOnly cookie.
- */
-export async function createSessionCookie(userId: string, orgId: string) {
+export const createSessionCookie = async (userId: string, orgId: string) => {
   const sessionId = await createDbSession(userId)
   const payload: SessionPayload = { sessionId, userId, orgId }
 
@@ -80,10 +77,6 @@ const getUser = cache(async (userId: string): Promise<User | null> => {
   }
 })
 
-/**
- * Gets the current user session from the cookie.
- * This is cached per-request.
- */
 export const getSession = cache(async () => {
   const cookieStore = await cookies()
   const cookieValue = cookieStore.get(SESSION_COOKIE_NAME)?.value
@@ -125,10 +118,7 @@ export const getSession = cache(async () => {
   }
 })
 
-/**
- * Deletes the session from the database and clears the cookie.
- */
-export async function deleteSession() {
+export const deleteSession = async () => {
   const session = await getSession()
 
   if (session) {
@@ -143,19 +133,14 @@ export async function deleteSession() {
   cookieStore.delete(SESSION_COOKIE_NAME)
 }
 
-// --- RBAC ---
-
 type Action = 'create' | 'read' | 'update' | 'delete'
 type Resource = 'project' | 'task' | 'comment' | 'attachment'
 
-/**
- * Centralized permission check. Throws an error if permission is denied.
- */
-export async function checkPermission(
+export const checkPermission = async (
   orgId: string,
   action: Action,
   resource: Resource | { type: Resource; id: string },
-) {
+) => {
   const session = await getSession()
 
   if (!session) {
@@ -163,7 +148,7 @@ export async function checkPermission(
   }
 
   if (session.activeOrgId !== orgId) {
-    throw new Error('Forbidden') // Should not happen if data is scoped correctly
+    throw new Error('Forbidden')
   }
 
   const userOrg = session.user.organizations.find((o) => o.id === orgId)
@@ -175,12 +160,10 @@ export async function checkPermission(
   const { role } = userOrg
   const resourceType = typeof resource === 'string' ? resource : resource.type
 
-  // Admin can do anything
   if (role === 'admin') {
     return
   }
 
-  // Member permissions
   if (role === 'member') {
     if (resourceType === 'project' && action !== 'read') {
       throw new Error('PermissionDenied')
@@ -190,8 +173,6 @@ export async function checkPermission(
       ['task', 'comment', 'attachment'].includes(resourceType) &&
       action === 'delete'
     ) {
-      // More granular check needed: is the user the owner of the resource?
-      // For now, we'll deny deletion for members.
       throw new Error('PermissionDenied')
     }
 

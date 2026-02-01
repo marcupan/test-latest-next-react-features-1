@@ -1,6 +1,6 @@
 'use server'
 
-import { revalidateTag } from 'next/cache'
+import { updateTag } from 'next/cache'
 
 import { db } from '@/shared/db'
 import { z } from 'zod'
@@ -13,16 +13,18 @@ const addCommentSchema = z.object({
   taskId: z.uuid(),
 })
 
-export async function addComment(
+export const addComment = async (
   _prevState: { error?: string },
   formData: FormData,
-): Promise<{ error?: string }> {
+): Promise<{ error?: string }> => {
   const session = await getSession()
+
   if (!session) return { error: 'Not authenticated' }
 
   const result = addCommentSchema.safeParse(
     Object.fromEntries(formData.entries()),
   )
+
   if (!result.success) {
     return { error: 'Invalid input' }
   }
@@ -33,7 +35,6 @@ export async function addComment(
   try {
     await checkPermission(activeOrgId, 'create', 'comment')
 
-    // Verify the task belongs to the user's organization
     const task = await db
       .selectFrom('tasks')
       .select(['id', 'project_id'])
@@ -57,14 +58,14 @@ export async function addComment(
       .returning('id')
       .executeTakeFirstOrThrow()
 
-    await recordAuditEvent({
+    recordAuditEvent({
       action: 'comment.create',
       userId: user.id,
       orgId: activeOrgId,
       details: { commentId: newComment.id, taskId, projectId: project_id },
     })
 
-    revalidateTag(`comments:${taskId}`, 'standard')
+    updateTag(`comments:${taskId}`)
     return {}
   } catch (e: unknown) {
     return {
@@ -73,8 +74,9 @@ export async function addComment(
   }
 }
 
-export async function deleteComment(commentId: string) {
+export const deleteComment = async (commentId: string) => {
   const session = await getSession()
+
   if (!session) throw new Error('Not authenticated')
 
   const comment = await db
@@ -95,12 +97,12 @@ export async function deleteComment(commentId: string) {
 
   await db.deleteFrom('comments').where('id', '=', commentId).execute()
 
-  await recordAuditEvent({
+  recordAuditEvent({
     action: 'comment.delete',
     userId: session.user.id,
     orgId: session.activeOrgId,
     details: { commentId },
   })
 
-  revalidateTag(`comments:${comment.task_id}`, 'standard')
+  updateTag(`comments:${comment.task_id}`)
 }

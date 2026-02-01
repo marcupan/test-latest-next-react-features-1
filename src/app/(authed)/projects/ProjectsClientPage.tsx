@@ -2,13 +2,14 @@
 
 import { useActionState, useOptimistic, useRef } from 'react'
 
+import { ZodError } from 'zod'
+
 import { createProject } from '@/features/projects/actions'
 import type { getProjects } from '@/features/projects/data'
 import { ProjectContext, useProject } from '@/features/projects/ProjectContext'
 import ProjectItem from '@/features/projects/ProjectItem'
 import { getZodFieldErrors } from '@/shared/lib/utils'
 import { FormFieldError } from '@/shared/ui/FormFieldError'
-import { ZodError } from 'zod'
 
 const CreateProjectForm = () => {
   const [state, formAction] = useActionState(createProject, { message: '' })
@@ -29,15 +30,19 @@ const CreateProjectForm = () => {
 
   return (
     <form ref={formRef} action={action} className="flex items-center gap-2">
+      <label htmlFor="project-name" className="sr-only">
+        Project name
+      </label>
       <input
+        id="project-name"
         name="name"
-        placeholder="New project name"
-        className="rounded-md border border-gray-300 px-3 py-2 shadow-sm"
+        placeholder="New project name…"
+        className="rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         required
       />
       <button
         type="submit"
-        className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+        className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
       >
         Create Project
       </button>
@@ -46,11 +51,11 @@ const CreateProjectForm = () => {
   )
 }
 
-export default function ProjectsClientPage({
+const ProjectsClientPage = ({
   projects,
 }: {
   projects: Awaited<ReturnType<typeof getProjects>>
-}) {
+}) => {
   const [optimisticProjects, addOptimisticProject] = useOptimistic(
     projects,
     (state, name: string) => [
@@ -85,3 +90,5 @@ export default function ProjectsClientPage({
     </ProjectContext.Provider>
   )
 }
+
+export default ProjectsClientPage

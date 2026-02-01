@@ -1,30 +1,40 @@
+import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
-import Attachments from '@/features/attachments/attachments'
 import { getAttachments } from '@/features/attachments/data'
 import Comments from '@/features/comments/comments'
 import { getComments } from '@/features/comments/data'
+import { AttachmentsSkeleton, CommentsSkeleton } from '@/shared/ui/Skeleton'
 
 import { getSession } from '@/lib/auth'
 
 import { getTaskDetails } from './data'
 
-export default async function TaskDetails({
+const Attachments = dynamic(
+  () => import('@/features/attachments/attachments'),
+  {
+    loading: () => <AttachmentsSkeleton />,
+    ssr: false,
+  },
+)
+
+const TaskDetails = async ({
   taskId,
   projectId,
 }: {
   taskId: string
   projectId: string
-}) {
-  const task = await getTaskDetails(taskId, projectId)
+}) => {
+  const [task, attachments, comments, session] = await Promise.all([
+    getTaskDetails(taskId, projectId),
+    getAttachments(taskId),
+    getComments(taskId),
+    getSession(),
+  ])
 
   if (!task) {
     return <div>Task not found.</div>
   }
-
-  const attachments = await getAttachments(taskId)
-  const comments = await getComments(taskId)
-  const session = await getSession()
 
   return (
     <div>
@@ -40,13 +50,11 @@ export default async function TaskDetails({
 
       <hr className="my-6" />
 
-      <Suspense fallback={<div>Loading attachments...</div>}>
-        <Attachments taskId={taskId} attachments={attachments} />
-      </Suspense>
+      <Attachments taskId={taskId} attachments={attachments} />
 
       <hr className="my-6" />
 
-      <Suspense fallback={<div>Loading comments...</div>}>
+      <Suspense fallback={<CommentsSkeleton />}>
         <Comments
           taskId={taskId}
           comments={comments}
@@ -57,3 +65,5 @@ export default async function TaskDetails({
     </div>
   )
 }
+
+export default TaskDetails

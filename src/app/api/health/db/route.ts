@@ -1,7 +1,11 @@
 import { NextResponse } from 'next/server'
 
-import { db } from '@/shared/db'
 import { sql } from 'kysely'
+
+import { db } from '@/shared/db'
+
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 interface SearchPathRow {
   search_path: string
@@ -20,7 +24,6 @@ export async function GET() {
       db,
     )
 
-    // Mask credentials in the URL but keep enough to see host/db
     const masked = process.env.POSTGRES_URL?.replace(
       /:\/\/.+@/,
       '://***:***@',
@@ -37,6 +40,7 @@ export async function GET() {
     })
   } catch (e: unknown) {
     const message = e instanceof Error ? e.message : String(e)
+
     return NextResponse.json({ error: message }, { status: 500 })
   }
 }

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'Secure Workspace',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_APP_URL ?? ''}/og-image.png`, // Must be an absolute URL
+        url: `${process.env.NEXT_PUBLIC_APP_URL ?? ''}/og-image.png`,
         width: 1200,
         height: 630,
       },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Secure Workspace',
     description: 'A Next.js SaaS boilerplate',
     creator: process.env.NEXT_PUBLIC_TWITTER_HANDLE ?? '',
-    images: [`${process.env.NEXT_PUBLIC_APP_URL ?? ''}/og-image.png`], // Must be an absolute URL
+    images: [`${process.env.NEXT_PUBLIC_APP_URL ?? ''}/og-image.png`],
   },
   robots: {
     index: true,
@@ -47,11 +47,11 @@ export const metadata: Metadata = {
 import { DynamicJsonLd } from '@/shared/ui/DynamicJsonLd'
 import { Suspense } from 'react'
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: ReactNode
-}>) {
+}>) => {
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning>
@@ -64,3 +64,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout

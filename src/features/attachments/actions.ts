@@ -1,18 +1,18 @@
 'use server'
 
 import { unlink } from 'fs/promises'
-import { revalidateTag } from 'next/cache'
+import { updateTag } from 'next/cache'
 import { join } from 'path'
-
-import { db } from '@/shared/db'
 
 import { recordAuditEvent } from '@/lib/audit-log'
 import { checkPermission, getSession } from '@/lib/auth'
+import { db } from '@/shared/db'
 
 const UPLOAD_DIR = join(process.cwd(), 'uploads')
 
-export async function deleteAttachment(attachmentId: string) {
+export const deleteAttachment = async (attachmentId: string) => {
   const session = await getSession()
+
   if (!session) throw new Error('Not authenticated')
 
   const attachment = await db
@@ -35,12 +35,12 @@ export async function deleteAttachment(attachmentId: string) {
 
   await db.deleteFrom('attachments').where('id', '=', attachmentId).execute()
 
-  await recordAuditEvent({
+  recordAuditEvent({
     action: 'attachment.delete',
     userId: session.user.id,
     orgId: session.activeOrgId,
     details: { attachmentId },
   })
 
-  revalidateTag(`attachments:${attachment.task_id}`, 'standard')
+  updateTag(`attachments:${attachment.task_id}`)
 }

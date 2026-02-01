@@ -2,22 +2,23 @@
 
 import crypto from 'crypto'
 import { useActionState, useId, useOptimistic, useRef } from 'react'
+import { useFormStatus } from 'react-dom'
 
 import type { Comment, User } from '@/shared/types'
-import { useFormStatus } from 'react-dom'
 
 import { addComment } from './actions'
 import CommentItem from './CommentItem'
 
-function SubmitButton() {
+const SubmitButton = () => {
   const { pending } = useFormStatus()
   return (
     <button
       type="submit"
-      className="mt-2 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+      aria-busy={pending}
+      className="mt-2 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50"
       disabled={pending}
     >
-      {pending ? 'Adding...' : 'Add Comment'}
+      {pending ? 'Adding…' : 'Add Comment'}
     </button>
   )
 }
@@ -29,12 +30,7 @@ type CommentsProps = {
   activeOrgId: string
 }
 
-export default function Comments({
-  taskId,
-  comments,
-  user,
-  activeOrgId,
-}: CommentsProps) {
+const Comments = ({ taskId, comments, user, activeOrgId }: CommentsProps) => {
   const formRef = useRef<HTMLFormElement>(null)
   const id = useId()
 
@@ -71,14 +67,16 @@ export default function Comments({
         <textarea
           id={id}
           name="body"
-          placeholder="Add a comment..."
-          className="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm"
+          placeholder="Add a comment…"
+          className="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           rows={3}
           required
         />
         <SubmitButton />
         {state?.error && (
-          <p className="mt-2 text-sm text-red-500">{state.error}</p>
+          <p className="mt-2 text-sm text-red-500" role="alert">
+            {state.error}
+          </p>
         )}
       </form>
 
@@ -93,3 +91,5 @@ export default function Comments({
     </div>
   )
 }
+
+export default Comments

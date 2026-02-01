@@ -8,7 +8,7 @@ type ProjectContextType = {
 
 export const ProjectContext = createContext<ProjectContextType | null>(null)
 
-export function useProject() {
+export const useProject = () => {
   const context = useContext(ProjectContext)
 
   if (!context) {

@@ -4,11 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 // eslint-disable-next-line sonarjs/no-globals-shadowing
-export default function Error({
-  error,
-}: {
-  error: Error & { digest?: string }
-}) {
+const Error = ({ error }: { error: Error & { digest?: string } }) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -17,9 +13,7 @@ export default function Error({
 
   return (
     <div className="p-8">
-      <h2 className="text-xl font-bold text-red-600">
-        Something went wrong!
-      </h2>
+      <h2 className="text-xl font-bold text-red-600">Something went wrong!</h2>
       <p className="mt-4 text-neutral-500">
         {process.env.NODE_ENV === 'development'
           ? error.message
@@ -34,3 +28,5 @@ export default function Error({
     </div>
   )
 }
+
+export default Error

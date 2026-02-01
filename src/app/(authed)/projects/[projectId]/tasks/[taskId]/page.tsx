@@ -22,7 +22,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function TaskPage({ params }: PageProps) {
+const TaskPage = async ({ params }: PageProps) => {
   const { taskId, projectId } = params
   const task = await getTaskDetails(taskId, projectId)
 
@@ -46,3 +46,5 @@ export default async function TaskPage({ params }: PageProps) {
     </div>
   )
 }
+
+export default TaskPage

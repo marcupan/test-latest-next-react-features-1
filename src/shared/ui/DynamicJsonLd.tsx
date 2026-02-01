@@ -4,9 +4,9 @@ import dynamic from 'next/dynamic'
 
 const JsonLdContent = dynamic(
   () => import('./JsonLd').then((mod) => mod.JsonLdContent),
-  { ssr: false }, // This component relies on `usePathname`, which is client-side only.
+  { ssr: false },
 )
 
-export function DynamicJsonLd() {
+export const DynamicJsonLd = () => {
   return <JsonLdContent />
 }

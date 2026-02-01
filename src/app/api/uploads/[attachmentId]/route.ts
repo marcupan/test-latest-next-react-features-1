@@ -2,10 +2,13 @@ import { readFile } from 'fs/promises'
 import { NextResponse, type NextRequest } from 'next/server'
 import { join } from 'path'
 
+import { handleApiError } from '@/lib/api-helpers'
+import { checkPermission, getSession } from '@/lib/auth'
 import { db } from '@/shared/db'
 
-import { checkPermission, getSession } from '@/lib/auth'
-import { handleApiError } from '@/lib/api-helpers'
+// Route Segment Config - Next.js 16
+export const dynamic = 'force-dynamic' // Always run dynamically
+export const runtime = 'nodejs' // Use Node.js runtime for file system access
 
 const UPLOAD_DIR = join(process.cwd(), 'uploads')
 

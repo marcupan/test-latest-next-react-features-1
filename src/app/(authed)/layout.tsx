@@ -1,20 +1,20 @@
-import type { ReactNode } from 'react';
-import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation'
+import type { ReactNode } from 'react'
 
-import { AppHeader } from '@/shared/ui/AppHeader';
-import { getSession } from '@/lib/auth';
+import { getSession } from '@/lib/auth'
+import { AppHeader } from '@/shared/ui/AppHeader'
 
-export default async function AuthedLayout({
+const AuthedLayout = async ({
   children,
   modal,
 }: {
-  children: ReactNode;
-  modal: ReactNode;
-}) {
-  const session = await getSession();
+  children: ReactNode
+  modal: ReactNode
+}) => {
+  const session = await getSession()
 
   if (!session) {
-    redirect('/login');
+    redirect('/login')
   }
 
   return (
@@ -23,5 +23,7 @@ export default async function AuthedLayout({
       <main className="p-8">{children}</main>
       {modal}
     </>
-  );
+  )
 }
+
+export default AuthedLayout

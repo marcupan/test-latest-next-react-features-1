@@ -5,6 +5,7 @@ import { Suspense, use } from 'react'
 import { getProject, getTasks } from '@/features/projects/data'
 import { TaskList } from '@/features/projects/TaskList'
 import ShareButton from '@/features/sharing/ShareButton'
+import { ProjectHeaderSkeleton, TaskListSkeleton } from '@/shared/ui/Skeleton'
 
 type PageProps = {
   params: Promise<{
@@ -12,31 +13,32 @@ type PageProps = {
   }>
 }
 
-export default async function ProjectPage({ params }: PageProps) {
+const ProjectPage = async ({ params }: PageProps) => {
   const { projectId } = await params
+
   const projectPromise = getProject(projectId)
   const tasksPromise = getTasks(projectId)
 
   return (
     <div className="p-8">
-      <Suspense fallback={<div>Loading project...</div>}>
+      <Suspense fallback={<ProjectHeaderSkeleton />}>
         <ProjectDetails projectPromise={projectPromise} projectId={projectId} />
       </Suspense>
 
-      <Suspense fallback={<div>Loading tasks...</div>}>
+      <Suspense fallback={<TaskListSkeleton />}>
         <TaskSection tasksPromise={tasksPromise} projectId={projectId} />
       </Suspense>
     </div>
   )
 }
 
-function ProjectDetails({
+const ProjectDetails = ({
   projectPromise,
   projectId,
 }: {
   projectPromise: Promise<Awaited<ReturnType<typeof getProject>>>
   projectId: string
-}) {
+}) => {
   const project = use(projectPromise)
 
   if (!project) {
@@ -56,14 +58,16 @@ function ProjectDetails({
   )
 }
 
-function TaskSection({
+const TaskSection = ({
   tasksPromise,
   projectId,
 }: {
   tasksPromise: Promise<Awaited<ReturnType<typeof getTasks>>>
   projectId: string
-}) {
+}) => {
   const tasks = use(tasksPromise)
 
   return <TaskList tasks={tasks} projectId={projectId} />
 }
+
+export default ProjectPage

@@ -1,8 +1,10 @@
-export default async function DashboardPage() {
+const DashboardPage = async () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
+      <h1 className="mb-8 text-3xl font-bold">Dashboard</h1>
       <p>Welcome to your secure workspace.</p>
     </div>
   )
 }
+
+export default DashboardPage

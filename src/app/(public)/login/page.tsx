@@ -2,12 +2,13 @@
 
 import { useActionState } from 'react'
 
+import { ZodError } from 'zod'
+
 import { login, signup } from '@/features/auth/actions'
 import { getZodFieldErrors } from '@/shared/lib/utils'
 import { FormFieldError } from '@/shared/ui/FormFieldError'
-import { ZodError } from 'zod'
 
-function LoginForm() {
+const LoginForm = () => {
   const [state, formAction] = useActionState(login, {})
 
   const errors =
@@ -26,7 +27,9 @@ function LoginForm() {
           id="email"
           name="email"
           type="email"
+          inputMode="email"
           autoComplete="email"
+          spellCheck="false"
           required
           className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
         />
@@ -67,7 +70,7 @@ function LoginForm() {
   )
 }
 
-function SignupForm() {
+const SignupForm = () => {
   const [state, formAction] = useActionState(signup, {})
 
   const errors =
@@ -102,6 +105,9 @@ function SignupForm() {
           id="email-signup"
           name="email"
           type="email"
+          inputMode="email"
+          autoComplete="email"
+          spellCheck="false"
           required
           className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
         />
@@ -135,7 +141,7 @@ function SignupForm() {
   )
 }
 
-export default function LoginPage() {
+const LoginPage = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
       <div className="w-full max-w-md space-y-6 rounded-lg bg-white p-8 shadow-md">
@@ -158,3 +164,5 @@ export default function LoginPage() {
     </div>
   )
 }
+
+export default LoginPage

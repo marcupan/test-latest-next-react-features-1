@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
 
-import { db } from '@/shared/db'
 import { compare } from 'bcryptjs'
+
+import { db } from '@/shared/db'
 
 type PageProps = {
   params: Promise<{
@@ -57,7 +58,7 @@ async function getProjectByShareToken(token: string) {
   }
 }
 
-export default async function SharePage({ params }: PageProps) {
+const SharePage = async ({ params }: PageProps) => {
   const { token } = await params
   const data = await getProjectByShareToken(token)
 
@@ -97,3 +98,5 @@ export default async function SharePage({ params }: PageProps) {
     </div>
   )
 }
+
+export default SharePage
