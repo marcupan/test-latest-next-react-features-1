@@ -2,14 +2,11 @@ import { writeFile } from 'fs/promises'
 import { NextResponse } from 'next/server'
 import { join } from 'path'
 
-import { db } from '@/shared/db'
-
 import { handleApiError } from '@/lib/api-helpers'
 import { recordAuditEvent } from '@/lib/audit-log'
 import { checkPermission, getSession } from '@/lib/auth'
+import { db } from '@/shared/db'
 
-export const dynamic = 'force-dynamic'
-export const runtime = 'nodejs'
 export const maxDuration = 30
 
 const UPLOAD_DIR = join(process.cwd(), 'uploads')

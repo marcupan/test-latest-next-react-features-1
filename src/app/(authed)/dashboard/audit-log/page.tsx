@@ -2,9 +2,14 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 import { getAuditLog } from '@/features/audit-log/data'
+import { getSession } from '@/lib/auth'
 
 const AuditLogList = async () => {
-  const auditLog = await getAuditLog()
+  const session = await getSession()
+
+  if (!session) return null
+
+  const auditLog = await getAuditLog(session.activeOrgId)
 
   return (
     <table className="min-w-full divide-y divide-gray-200">

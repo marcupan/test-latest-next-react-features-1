@@ -4,9 +4,6 @@ import { sql } from 'kysely'
 
 import { db } from '@/shared/db'
 
-export const dynamic = 'force-dynamic'
-export const runtime = 'nodejs'
-
 interface SearchPathRow {
   search_path: string
 }

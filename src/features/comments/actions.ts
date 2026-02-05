@@ -1,12 +1,11 @@
 'use server'
 
 import { updateTag } from 'next/cache'
-
-import { db } from '@/shared/db'
 import { z } from 'zod'
 
 import { recordAuditEvent } from '@/lib/audit-log'
 import { checkPermission, getSession } from '@/lib/auth'
+import { db } from '@/shared/db'
 
 const addCommentSchema = z.object({
   body: z.string().min(1, 'Comment body cannot be empty'),
@@ -66,6 +65,7 @@ export const addComment = async (
     })
 
     updateTag(`comments:${taskId}`)
+    updateTag(`audit_log:${activeOrgId}`)
     return {}
   } catch (e: unknown) {
     return {
@@ -105,4 +105,5 @@ export const deleteComment = async (commentId: string) => {
   })
 
   updateTag(`comments:${comment.task_id}`)
+  updateTag(`audit_log:${session.activeOrgId}`)
 }

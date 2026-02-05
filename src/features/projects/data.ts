@@ -2,59 +2,36 @@ import { cacheTag } from 'next/cache'
 
 import { db } from '@/shared/db'
 
-import { checkPermission, getSession } from '@/lib/auth'
-
-export const getProjects = async () => {
+export const getProjects = async (orgId: string) => {
   'use cache'
 
-  const session = await getSession()
-  if (!session) return []
-
-  await checkPermission(session.activeOrgId, 'read', 'project')
-
-  cacheTag('projects', `projects:${session.activeOrgId}`)
+  cacheTag('projects', `projects:${orgId}`)
 
   return db
     .selectFrom('projects')
     .select(['id', 'name'])
-    .where('organization_id', '=', session.activeOrgId)
+    .where('organization_id', '=', orgId)
     .orderBy('created_at', 'desc')
     .execute()
 }
 
-export const getProject = async (projectId: string) => {
+export const getProject = async (projectId: string, orgId: string) => {
   'use cache'
 
-  const session = await getSession()
-  if (!session) return null
-
-  await checkPermission(session.activeOrgId, 'read', {
-    type: 'project',
-    id: projectId,
-  })
-
-  cacheTag(`project:${projectId}`, `projects:${session.activeOrgId}`)
+  cacheTag(`project:${projectId}`, `projects:${orgId}`)
 
   const project = await db
     .selectFrom('projects')
     .select(['id', 'name'])
     .where('id', '=', projectId)
-    .where('organization_id', '=', session.activeOrgId)
+    .where('organization_id', '=', orgId)
     .executeTakeFirst()
 
   return project || null
 }
 
-export const getTasks = async (projectId: string) => {
+export const getTasks = async (projectId: string, orgId: string) => {
   'use cache'
-
-  const session = await getSession()
-  if (!session) return []
-
-  await checkPermission(session.activeOrgId, 'read', {
-    type: 'project',
-    id: projectId,
-  })
 
   cacheTag(`tasks:${projectId}`, `project:${projectId}`)
 
@@ -62,21 +39,17 @@ export const getTasks = async (projectId: string) => {
     .selectFrom('tasks')
     .select(['id', 'title', 'status'])
     .where('project_id', '=', projectId)
-    .where('organization_id', '=', session.activeOrgId)
+    .where('organization_id', '=', orgId)
     .orderBy('created_at', 'asc')
     .execute()
 }
 
-export const getTaskDetails = async (taskId: string, projectId: string) => {
+export const getTaskDetails = async (
+  taskId: string,
+  projectId: string,
+  orgId: string,
+) => {
   'use cache'
-
-  const session = await getSession()
-  if (!session) return null
-
-  await checkPermission(session.activeOrgId, 'read', {
-    type: 'project',
-    id: projectId,
-  })
 
   cacheTag(`task:${taskId}`, `tasks:${projectId}`)
 
@@ -84,7 +57,7 @@ export const getTaskDetails = async (taskId: string, projectId: string) => {
     .selectFrom('tasks as t')
     .innerJoin('projects as p', 't.project_id', 'p.id')
     .where('t.id', '=', taskId)
-    .where('t.organization_id', '=', session.activeOrgId)
+    .where('t.organization_id', '=', orgId)
     .select([
       't.id',
       't.title',

@@ -53,6 +53,7 @@ export const createProject = async (
 
   updateTag(`projects:${activeOrgId}`)
   updateTag('projects')
+  updateTag(`audit_log:${activeOrgId}`)
   revalidatePath('/projects')
 
   return {}
@@ -112,6 +113,7 @@ export const createTask = async (formData: FormData) => {
   })
 
   updateTag(`tasks:${projectId}`)
+  updateTag(`audit_log:${activeOrgId}`)
   revalidatePath(`/projects/${projectId}`)
 }
 
@@ -173,6 +175,7 @@ export const deleteTask = async (taskId: string) => {
   })
 
   updateTag(`tasks:${task.project_id}`)
+  updateTag(`audit_log:${session.activeOrgId}`)
 }
 
 export const deleteProject = async (projectId: string) => {
@@ -239,4 +242,5 @@ export const deleteProject = async (projectId: string) => {
 
   updateTag(`projects:${session.activeOrgId}`)
   updateTag('projects')
+  updateTag(`audit_log:${session.activeOrgId}`)
 }

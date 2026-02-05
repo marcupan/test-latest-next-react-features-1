@@ -1,22 +1,13 @@
-import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
+import Attachments from '@/features/attachments/attachments'
 import { getAttachments } from '@/features/attachments/data'
 import Comments from '@/features/comments/comments'
 import { getComments } from '@/features/comments/data'
-import { AttachmentsSkeleton, CommentsSkeleton } from '@/shared/ui/Skeleton'
-
 import { getSession } from '@/lib/auth'
+import { CommentsSkeleton } from '@/shared/ui/Skeleton'
 
 import { getTaskDetails } from './data'
-
-const Attachments = dynamic(
-  () => import('@/features/attachments/attachments'),
-  {
-    loading: () => <AttachmentsSkeleton />,
-    ssr: false,
-  },
-)
 
 const TaskDetails = async ({
   taskId,
@@ -25,11 +16,14 @@ const TaskDetails = async ({
   taskId: string
   projectId: string
 }) => {
-  const [task, attachments, comments, session] = await Promise.all([
-    getTaskDetails(taskId, projectId),
-    getAttachments(taskId),
-    getComments(taskId),
-    getSession(),
+  const session = await getSession()
+
+  if (!session) return <div>Task not found.</div>
+
+  const [task, attachments, comments] = await Promise.all([
+    getTaskDetails(taskId, projectId, session.activeOrgId),
+    getAttachments(taskId, session.activeOrgId),
+    getComments(taskId, session.activeOrgId),
   ])
 
   if (!task) {
@@ -58,8 +52,8 @@ const TaskDetails = async ({
         <Comments
           taskId={taskId}
           comments={comments}
-          user={session!.user}
-          activeOrgId={session!.activeOrgId}
+          user={session.user}
+          activeOrgId={session.activeOrgId}
         />
       </Suspense>
     </div>

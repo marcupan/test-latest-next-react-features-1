@@ -5,6 +5,7 @@ import { Suspense, use } from 'react'
 import { getProject, getTasks } from '@/features/projects/data'
 import { TaskList } from '@/features/projects/TaskList'
 import ShareButton from '@/features/sharing/ShareButton'
+import { checkPermission, getSession } from '@/lib/auth'
 import { ProjectHeaderSkeleton, TaskListSkeleton } from '@/shared/ui/Skeleton'
 
 type PageProps = {
@@ -16,8 +17,17 @@ type PageProps = {
 const ProjectPage = async ({ params }: PageProps) => {
   const { projectId } = await params
 
-  const projectPromise = getProject(projectId)
-  const tasksPromise = getTasks(projectId)
+  const session = await getSession()
+
+  if (!session) return null
+
+  await checkPermission(session.activeOrgId, 'read', {
+    type: 'project',
+    id: projectId,
+  })
+
+  const projectPromise = getProject(projectId, session.activeOrgId)
+  const tasksPromise = getTasks(projectId, session.activeOrgId)
 
   return (
     <div className="p-8">

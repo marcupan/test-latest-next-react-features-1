@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 
 import { getTaskDetails } from '@/features/projects/data'
 import TaskDetails from '@/features/projects/task-details'
+import { getSession } from '@/lib/auth'
 
 type PageProps = {
   params: {
@@ -12,10 +13,18 @@ type PageProps = {
   }
 }
 
-export async function generateMetadata({
+export const generateMetadata = async ({
   params,
-}: PageProps): Promise<Metadata> {
-  const task = await getTaskDetails(params.taskId, params.projectId)
+}: PageProps): Promise<Metadata> => {
+  const session = await getSession()
+
+  if (!session) return { title: 'Task' }
+
+  const task = await getTaskDetails(
+    params.taskId,
+    params.projectId,
+    session.activeOrgId,
+  )
 
   return {
     title: task?.title || 'Task',
@@ -24,7 +33,11 @@ export async function generateMetadata({
 
 const TaskPage = async ({ params }: PageProps) => {
   const { taskId, projectId } = params
-  const task = await getTaskDetails(taskId, projectId)
+
+  const session = await getSession()
+  if (!session) return <div>Task not found.</div>
+
+  const task = await getTaskDetails(taskId, projectId, session.activeOrgId)
 
   if (!task) {
     return <div>Task not found.</div>

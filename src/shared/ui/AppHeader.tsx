@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { logout } from '@/features/auth/actions'
 import type { getSession } from '@/lib/auth'
 
+import NavLinks from './NavLinks'
+
 type AppHeaderProps = {
   session: NonNullable<Awaited<ReturnType<typeof getSession>>>
 }
@@ -14,20 +16,7 @@ export const AppHeader = ({ session }: AppHeaderProps) => {
         <Link href="/dashboard" className="text-lg font-bold">
           Dashboard
         </Link>
-        <nav className="flex items-center gap-4">
-          <Link
-            href="/projects"
-            className="text-sm text-blue-500 hover:underline"
-          >
-            Projects
-          </Link>
-          <Link
-            href="/dashboard/audit-log"
-            className="text-sm text-blue-500 hover:underline"
-          >
-            Audit Log
-          </Link>
-        </nav>
+        <NavLinks />
       </div>
       <div className="flex items-center gap-4">
         <span className="text-sm">

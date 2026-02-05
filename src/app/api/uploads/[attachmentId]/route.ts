@@ -6,10 +6,6 @@ import { handleApiError } from '@/lib/api-helpers'
 import { checkPermission, getSession } from '@/lib/auth'
 import { db } from '@/shared/db'
 
-// Route Segment Config - Next.js 16
-export const dynamic = 'force-dynamic' // Always run dynamically
-export const runtime = 'nodejs' // Use Node.js runtime for file system access
-
 const UPLOAD_DIR = join(process.cwd(), 'uploads')
 
 export async function GET(

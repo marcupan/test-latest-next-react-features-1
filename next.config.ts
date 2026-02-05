@@ -1,16 +1,14 @@
 /** @type {import('next').NextConfig} */
 
-// Turbopack config moved under top-level `turbopack` per Next 16 API.
 function createSecureHeaders() {
   const isDevelopment = process.env.NODE_ENV === 'development'
 
-  // Base CSP configuration
   const csp = [
     {
       key: 'Content-Security-Policy',
       value:
         "default-src 'self';" +
-        "script-src 'self' 'unsafe-inline' https://vercel.com;" + // Vercel scripts
+        "script-src 'self' 'unsafe-inline' https://vercel.com;" +
         "style-src 'self' 'unsafe-inline';" +
         "img-src 'self' data:;" +
         "font-src 'self';" +
@@ -22,7 +20,6 @@ function createSecureHeaders() {
     },
   ]
 
-  // Allow 'unsafe-eval' in development for HMR and other tools
   if (isDevelopment) {
     const scriptSrc = "script-src 'self' 'unsafe-eval'"
     const styleSrc = "style-src 'self' 'unsafe-inline'"
@@ -68,29 +65,21 @@ const nextConfig = {
       },
     ]
   },
-  // Enable cacheComponents which includes Partial Prerendering (PPR) in Next.js 16+
-  // PPR was previously experimental.ppr but is now integrated into cacheComponents
   cacheComponents: true,
   cacheLife: {
     standard: {
-      stale: 3600, // 1 hour
-      revalidate: 86400, // 1 day
-      expire: 604800, // 1 week
+      stale: 3600,
+      revalidate: 86400,
+      expire: 604800,
     },
     layout: {
-      stale: 3600, // 1 hour
-      revalidate: 86400, // 1 day
-      expire: 604800, // 1 week
+      stale: 3600,
+      revalidate: 86400,
+      expire: 604800,
     },
   },
   turbopack: {
     root: process.cwd(),
-  },
-  experimental: {
-    // Enable React Compiler (Forget) for automatic memoization
-    reactCompiler: true,
-    // Enable after() API for non-blocking operations
-    after: true,
   },
 }
 
