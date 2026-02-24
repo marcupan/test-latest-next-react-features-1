@@ -1,0 +1,65 @@
+import type { Dictionary } from './en'
+
+export const ua: Dictionary = {
+  common: {
+    loading: 'Завантаження…',
+    error: 'Помилка',
+    success: 'Успіх',
+    cancel: 'Скасувати',
+    save: 'Зберегти',
+    delete: 'Видалити',
+    edit: 'Редагувати',
+    create: 'Створити',
+    search: 'Пошук',
+    back: 'Назад',
+  },
+  navigation: {
+    dashboard: 'Панель',
+    projects: 'Проєкти',
+    auditLog: 'Журнал аудиту',
+    logout: 'Вийти',
+  },
+  auth: {
+    signIn: 'Увійти',
+    signUp: 'Зареєструватися',
+    email: 'Електронна пошта',
+    password: 'Пароль', // eslint-disable-line sonarjs/no-hardcoded-passwords
+    orgName: 'Назва організації',
+    signInToAccount: 'Увійдіть до свого облікового запису',
+    createNewOrg: 'Створити нову організацію та користувача',
+  },
+  dashboard: {
+    title: 'Панель',
+    welcome: 'Ласкаво просимо до вашого безпечного робочого простору',
+    projects: 'Проєкти',
+    tasks: 'Завдання',
+    recentActivity: 'Недавня активність',
+    noActivity: 'Немає недавньої активності',
+    createdThisWeek: 'створено цього тижня',
+    pending: 'в очікуванні',
+    completed: 'завершено',
+  },
+  projects: {
+    title: 'Проєкти',
+    newProject: 'Назва нового проєкту…',
+    createProject: 'Створити проєкт',
+    noProjects: 'Проєкти не знайдено. Створіть один, щоб почати.',
+    searchProjects: 'Пошук проєктів…',
+    projectsFound: 'проєктів знайдено',
+    projectFound: 'проєкт знайдено',
+    backToProjects: 'Назад до всіх проєктів',
+  },
+  tasks: {
+    addTask: 'Додати завдання',
+    taskTitle: 'Назва завдання…',
+    noTasks: 'Завдань ще немає',
+    markComplete: 'Позначити як виконане',
+    markPending: 'Позначити як в очікуванні',
+    deleteTask: 'Видалити завдання',
+  },
+  comments: {
+    addComment: 'Додати коментар',
+    writeComment: 'Напишіть свій коментар…',
+    noComments: 'Коментарів ще немає',
+  },
+} as const
