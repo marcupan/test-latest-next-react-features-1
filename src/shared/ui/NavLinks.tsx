@@ -3,13 +3,11 @@
 import Link, { useLinkStatus } from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const LINKS = [
-  { href: '/projects', label: 'Projects' },
-  { href: '/dashboard/audit-log', label: 'Audit Log' },
-] as const
+import { useTranslations } from '@/lib/i18n/client'
 
 const LinkHint = () => {
   const { pending } = useLinkStatus()
+
   return (
     <span
       aria-hidden="true"
@@ -20,10 +18,16 @@ const LinkHint = () => {
 
 const NavLinks = () => {
   const pathname = usePathname()
+  const t = useTranslations()
+
+  const links = [
+    { href: '/projects', label: t.navigation.projects },
+    { href: '/dashboard/audit-log', label: t.navigation.auditLog },
+  ] as const
 
   return (
     <nav className="flex items-center gap-4">
-      {LINKS.map(({ href, label }) => {
+      {links.map(({ href, label }) => {
         const isActive = pathname === href || pathname.startsWith(href + '/')
 
         return (

@@ -68,9 +68,9 @@ const Modal = ({ children }: { children: ReactNode }) => {
           {children}
         </ModalContext.Provider>
         <button
-          onClick={onDismiss}
           aria-label="Close modal"
           className="absolute top-2 right-2 rounded-full bg-gray-200 px-2 py-0.5 hover:bg-gray-300 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          onClick={onDismiss}
         >
           X
         </button>

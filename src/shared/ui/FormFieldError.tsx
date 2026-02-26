@@ -1,8 +1,9 @@
 type FormFieldErrorProps = {
   error: string | string[] | undefined | null
+  id?: string
 }
 
-export const FormFieldError = ({ error }: FormFieldErrorProps) => {
+export const FormFieldError = ({ error, id }: FormFieldErrorProps) => {
   if (!error) {
     return null
   }
@@ -10,7 +11,7 @@ export const FormFieldError = ({ error }: FormFieldErrorProps) => {
   const errors = Array.isArray(error) ? error : [error]
 
   return (
-    <div aria-live="polite">
+    <div id={id} aria-live="polite" role="alert">
       {errors.map((e, index) => (
         <p key={index} className="text-sm text-red-500">
           {e}

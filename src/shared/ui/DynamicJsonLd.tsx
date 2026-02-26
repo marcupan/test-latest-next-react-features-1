@@ -7,6 +7,4 @@ const JsonLdContent = dynamic(
   { ssr: false },
 )
 
-export const DynamicJsonLd = () => {
-  return <JsonLdContent />
-}
+export const DynamicJsonLd = () => <JsonLdContent />
