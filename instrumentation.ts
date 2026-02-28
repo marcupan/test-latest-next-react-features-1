@@ -1,77 +1,86 @@
+/* eslint-disable no-console */
+
 /**
- * Next.js Instrumentation Hook
- * Runs once when the server starts up.
- * Use for one-time initialization, connection pooling, etc.
+ * Next.js 16 Instrumentation Hooks
+ *
+ * This file runs once when the server starts (both dev and production).
+ * Use it for:
+ * - Setting up observability/telemetry
+ * - Initializing external services
+ * - Registering global error handlers
+ * - Warming up connections
  *
  * @see https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation
  */
 
-export async function register() {
-  // Only run in Node.js runtime (not Edge)
+export const register = async () => {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
-    // eslint-disable-next-line no-console
-    console.log('🚀 Server initialization starting...')
+    // Only run in Node.js runtime (not Edge)
+    console.log('🚀 Server instrumentation initialized')
+    console.log(`📊 Environment: ${process.env.NODE_ENV}`)
+    console.log(`⚡ Runtime: Node.js`)
 
-    // Pre-initialize database connection pool
-    // This ensures the pool is ready before first request
+    // Example: Initialize telemetry/monitoring
+    // await initializeTelemetry()
+
+    // Example: Set up global error handlers
+    process.on('unhandledRejection', (reason, promise) => {
+      console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason)
+      // Send error tracking service (Sentry, etc.)
+    })
+
+    process.on('uncaughtException', (error) => {
+      console.error('❌ Uncaught Exception:', error)
+      // Send error tracking service
+      // Consider a graceful shutdown
+    })
+
+    // Example: Warm up the database connection pool
     try {
       const { db } = await import('./src/shared/db')
 
-      // Test connection and warm up pool
-      await db
-        .selectFrom('users')
-        .select('id')
-        .limit(1)
-        .execute()
-        .catch(() => {
-          // Ignore error if users table doesn't exist yet (migrations not run)
-        })
+      await db.selectFrom('organizations').select('id').limit(1).execute()
 
-      // eslint-disable-next-line no-console
-      console.log('✅ Database connection pool initialized')
+      console.log('✅ Database connection pool warmed up')
     } catch (error) {
-      console.error('⚠️  Database pool initialization failed:', error)
-      // Don't throw - let the app start anyway
+      console.error('⚠️  Failed to warm up database:', error)
     }
 
-    // You could also:
-    // - Warm up Redis connections
-    // - Initialize monitoring/telemetry
-    // - Pre-load configuration
-    // - Start background workers
-
-    // eslint-disable-next-line no-console
-    console.log('✅ Server initialization complete')
+    console.log('✨ Instrumentation setup complete')
   }
 
-  // Edge runtime initialization (if needed)
   if (process.env.NEXT_RUNTIME === 'edge') {
-    // eslint-disable-next-line no-console
-    console.log('🌐 Edge runtime initialized')
+    // Edge runtime initialization (if needed)
+    console.log('⚡ Edge runtime instrumentation initialized')
   }
 }
 
 /**
- * Optional: onRequestError hook for global error handling
+ * Optional: Export onRequestError for custom error handling
  * Available in Next.js 15+
  */
-export async function onRequestError(
+export const onRequestError = async (
   error: Error,
-  request: {
-    path: string
-    method: string
+  request: Request,
+  context: {
+    routerKind: 'Pages Router' | 'App Router'
+    routePath: string
+    routeType: 'render' | 'route' | 'action' | 'middleware'
   },
-) {
-  // Log errors to your monitoring service
-  console.error('Request error:', {
+) => {
+  console.error('🚨 Request Error:', {
     error: error.message,
-    path: request.path,
-    method: request.method,
     stack: error.stack,
+    route: context.routePath,
+    type: context.routeType,
+    method: request.method,
+    url: request.url,
   })
 
-  // You could send to:
-  // - Sentry
-  // - DataDog
-  // - Custom logging service
+  // Send error tracking service
+  // await sendToErrorTracker({
+  //   error,
+  //   request,
+  //   context,
+  // })
 }

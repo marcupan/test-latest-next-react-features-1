@@ -1,53 +1,39 @@
+/**
+ * Next.js 16 Dynamic Sitemap Generation
+ *
+ * Generates sitemap.xml automatically with static and dynamic routes.
+ * Accessible at /sitemap.xml
+ *
+ * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
+ */
+
 import type { MetadataRoute } from 'next'
 
-import { db } from '@/shared/db'
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
-
-  const projects = await db
-    .selectFrom('projects')
-    .select(['id', 'updated_at'])
-    .execute()
-  const tasks = await db
-    .selectFrom('tasks')
-    .select(['id', 'project_id', 'updated_at'])
-    .execute()
-
-  const projectUrls = projects.map((project) => ({
-    url: `${appUrl}/projects/${project.id}`,
-    lastModified: project.updated_at,
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }))
-
-  const taskUrls = tasks.map((task) => ({
-    url: `${appUrl}/projects/${task.project_id}/tasks/${task.id}`,
-    lastModified: task.updated_at,
-    changeFrequency: 'weekly' as const,
-    priority: 0.5,
-  }))
-
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (): MetadataRoute.Sitemap => {
+  // Static pages
   return [
     {
-      url: appUrl,
+      url: BASE_URL,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
+      changeFrequency: 'daily',
+      priority: 1.0,
     },
     {
-      url: `${appUrl}/login`,
+      url: `${BASE_URL}/login`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${appUrl}/dashboard`,
+      url: `${BASE_URL}/projects`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.5,
+      changeFrequency: 'daily',
+      priority: 0.9,
     },
-    ...projectUrls,
-    ...taskUrls,
+    // Note: Dynamic shared project URLs can be added by fetching from DB
+    // Example: await db.selectFrom('public_shares').select(['token']).execute()
   ]
 }
