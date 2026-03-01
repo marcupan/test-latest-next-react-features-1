@@ -1,5 +1,3 @@
-import 'server-only'
-
 import { scrypt as _scrypt, randomBytes, timingSafeEqual } from 'crypto'
 import { promisify } from 'util'
 
