@@ -7,12 +7,10 @@ type TaskModalContentProps = {
   projectId: string
 }
 
-const TaskModalContent = ({ taskId, projectId }: TaskModalContentProps) => {
-  return (
-    <Suspense fallback={<div>Loading task...</div>}>
-      <TaskDetails taskId={taskId} projectId={projectId} />
-    </Suspense>
-  )
-}
+const TaskModalContent = ({ taskId, projectId }: TaskModalContentProps) => (
+  <Suspense fallback={<div>Loading task...</div>}>
+    <TaskDetails taskId={taskId} projectId={projectId} />
+  </Suspense>
+)
 
 export default TaskModalContent

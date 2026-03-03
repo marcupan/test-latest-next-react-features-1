@@ -17,8 +17,11 @@ const CreateTaskForm = ({
 
   const action = async (formData: FormData) => {
     const title = formData.get('title') as string
+
     addTask(title)
+
     await createTask(formData)
+
     formRef.current?.reset()
   }
 
