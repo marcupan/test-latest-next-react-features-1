@@ -1,12 +1,11 @@
 'use server'
 
+import { hash } from 'bcryptjs'
 import { randomBytes } from 'crypto'
 import { updateTag } from 'next/cache'
 
-import { db } from '@/shared/db'
-import { hash } from 'bcryptjs'
-
 import { checkPermission, getSession } from '@/lib/auth'
+import { db } from '@/shared/db'
 
 const TOKEN_BYTES = 32
 
@@ -34,12 +33,15 @@ const verifyProjectAccess = async (
   if (!project) {
     throw new Error('Project not found')
   }
+
   return project
 }
 
 const handleActionError = (error: unknown, defaultMessage: string) => {
   console.error(error)
+
   const message = error instanceof Error ? error.message : defaultMessage
+
   return { error: message }
 }
 
@@ -47,6 +49,7 @@ export const createShareToken = async (
   projectId: string,
 ): Promise<{ shareUrl?: string; error?: string }> => {
   const session = await getSession()
+
   if (!session) {
     return handleActionError(
       new Error('Not authenticated'),
@@ -83,6 +86,7 @@ export const createShareToken = async (
     const baseUrl = process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : 'http://localhost:3000'
+
     return { shareUrl: `${baseUrl}/share/${token}` }
   } catch (error: unknown) {
     return handleActionError(error, 'Could not create share token')
@@ -93,6 +97,7 @@ export const revokeShareToken = async (
   projectId: string,
 ): Promise<{ success?: boolean; error?: string }> => {
   const session = await getSession()
+
   if (!session) {
     return handleActionError(
       new Error('Not authenticated'),

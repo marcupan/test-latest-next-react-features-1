@@ -12,6 +12,7 @@ const ShareButton = ({ projectId }: { projectId: string }) => {
   const handleCreate = () => {
     startCreateTransition(async () => {
       const result = await createShareToken(projectId)
+
       if (result.shareUrl) {
         setShareUrl(result.shareUrl)
       } else {
@@ -23,6 +24,7 @@ const ShareButton = ({ projectId }: { projectId: string }) => {
   const handleRevoke = () => {
     startRevokeTransition(async () => {
       const result = await revokeShareToken(projectId)
+
       if (result.success) {
         setShareUrl(null)
       } else {
@@ -45,17 +47,17 @@ const ShareButton = ({ projectId }: { projectId: string }) => {
           className="w-full rounded border bg-gray-100 px-2 py-1 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         />
         <button
-          onClick={() => navigator.clipboard.writeText(shareUrl)}
           aria-label="Copy share link to clipboard"
           className="rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700 focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+          onClick={() => navigator.clipboard.writeText(shareUrl)}
         >
           Copy
         </button>
         <button
-          onClick={handleRevoke}
           disabled={isRevokePending}
           aria-busy={isRevokePending}
           className="rounded-md bg-red-600 px-4 py-2 text-white hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 disabled:bg-red-400"
+          onClick={handleRevoke}
         >
           {isRevokePending ? 'Revoking…' : 'Revoke'}
         </button>
