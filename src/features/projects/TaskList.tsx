@@ -1,10 +1,25 @@
 'use client'
 
 import { useOptimistic, useRef } from 'react'
+import { useFormStatus } from 'react-dom'
 
 import { createTask } from '@/features/projects/actions'
 import type { getTasks } from '@/features/projects/data'
 import TaskItem from '@/features/projects/TaskItem'
+
+const SubmitButton = () => {
+  const { pending } = useFormStatus()
+  return (
+    <button
+      type="submit"
+      aria-busy={pending}
+      disabled={pending}
+      className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50"
+    >
+      {pending ? 'Adding…' : 'Add Task'}
+    </button>
+  )
+}
 
 const CreateTaskForm = ({
   projectId,
@@ -42,12 +57,7 @@ const CreateTaskForm = ({
         className="grow rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         required
       />
-      <button
-        type="submit"
-        className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-      >
-        Add Task
-      </button>
+      <SubmitButton />
     </form>
   )
 }

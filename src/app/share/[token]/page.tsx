@@ -1,6 +1,5 @@
+import { createHmac } from 'crypto'
 import { notFound } from 'next/navigation'
-
-import { compare } from 'bcryptjs'
 
 import { db } from '@/shared/db'
 
@@ -16,46 +15,40 @@ interface Task {
   status: string
 }
 
-async function getProjectByShareToken(token: string) {
-  const allTokens = await db
+const hashToken = (token: string) =>
+  createHmac('sha256', process.env.SESSION_SECRET!)
+    .update(token)
+    .digest('hex')
+
+const getProjectByShareToken = async (token: string) => {
+  const tokenHash = hashToken(token)
+
+  const shareToken = await db
     .selectFrom('share_tokens')
-    .select(['token_hash', 'project_id'])
-    .execute()
-
-  let validToken = null
-  for (const row of allTokens) {
-    const isMatch = await compare(token, row.token_hash)
-
-    if (isMatch) {
-      validToken = row
-      break
-    }
-  }
-
-  if (!validToken) {
-    return null
-  }
-
-  const { project_id } = validToken
-
-  const project = await db
-    .selectFrom('projects')
-    .select(['id', 'name'])
-    .where('id', '=', project_id)
+    .select('project_id')
+    .where('token_hash', '=', tokenHash)
     .executeTakeFirst()
+
+  if (!shareToken) return null
+
+  const { project_id } = shareToken
+
+  const [project, tasks] = await Promise.all([
+    db
+      .selectFrom('projects')
+      .select(['id', 'name'])
+      .where('id', '=', project_id)
+      .executeTakeFirst(),
+    db
+      .selectFrom('tasks')
+      .select(['id', 'title', 'status'])
+      .where('project_id', '=', project_id)
+      .execute(),
+  ])
 
   if (!project) return null
 
-  const tasks = await db
-    .selectFrom('tasks')
-    .select(['id', 'title', 'status'])
-    .where('project_id', '=', project_id)
-    .execute()
-
-  return {
-    project,
-    tasks: tasks as Task[],
-  }
+  return { project, tasks: tasks as Task[] }
 }
 
 const SharePage = async ({ params }: PageProps) => {

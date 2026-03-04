@@ -1,8 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { memo } from 'react'
+import { memo, useTransition } from 'react'
 
 import { deleteTask } from './actions'
 
@@ -13,17 +12,17 @@ const TaskItem = ({
   task: { id: string; title: string; status: string }
   projectId: string
 }) => {
-  const router = useRouter()
+  const [isPending, startTransition] = useTransition()
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     if (
       window.confirm(
         'Are you sure you want to delete this task? This will also delete all comments and attachments.',
       )
     ) {
-      await deleteTask(task.id)
-
-      router.refresh()
+      startTransition(async () => {
+        await deleteTask(task.id)
+      })
     }
   }
 
@@ -44,10 +43,12 @@ const TaskItem = ({
         </Link>
         <button
           aria-label={`Delete task ${task.title}`}
-          className="rounded text-sm text-red-600 hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+          aria-busy={isPending}
+          disabled={isPending}
+          className="rounded text-sm text-red-600 hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 disabled:opacity-50"
           onClick={handleDelete}
         >
-          Delete
+          {isPending ? 'Deleting…' : 'Delete'}
         </button>
       </div>
     </li>

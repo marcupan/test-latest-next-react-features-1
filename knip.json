@@ -1,7 +1,3 @@
 {
-  "ignore": [
-    "src/shared/db/types.ts",
-    "src/shared/types/index.ts",
-    "report/**"
-  ]
+  "ignore": ["src/shared/db/types.ts", "src/shared/types/index.ts", "report/**"]
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import crypto from 'crypto'
 import { useActionState, useId, useOptimistic, useRef } from 'react'
 import { useFormStatus } from 'react-dom'
 
@@ -49,7 +48,7 @@ const Comments = ({ taskId, comments, user, activeOrgId }: CommentsProps) => {
       created_at: new Date().toISOString(),
       author_email: user.email,
       task_id: taskId,
-      user_id: user.id, // This will be replaced by the server
+      user_id: user.id, // The server will replace this
       organization_id: activeOrgId, // Use activeOrgId from props
     })
     formRef.current?.reset()

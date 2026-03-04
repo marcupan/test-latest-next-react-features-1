@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import type { MouseEvent } from 'react'
-import { memo } from 'react'
+import { memo, useTransition } from 'react'
 
 import { deleteProject } from './actions'
 
@@ -12,9 +11,9 @@ const ProjectItem = ({
 }: {
   project: { id: string; name: string }
 }) => {
-  const router = useRouter()
+  const [isPending, startTransition] = useTransition()
 
-  const handleDelete = async (e: MouseEvent) => {
+  const handleDelete = (e: MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
 
@@ -23,9 +22,9 @@ const ProjectItem = ({
         'Are you sure you want to delete this project? This will also delete all tasks, comments, and attachments.',
       )
     ) {
-      await deleteProject(project.id)
-
-      router.refresh()
+      startTransition(async () => {
+        await deleteProject(project.id)
+      })
     }
   }
 
@@ -43,9 +42,11 @@ const ProjectItem = ({
         <button
           onClick={handleDelete}
           aria-label={`Delete project ${project.name}`}
-          className="absolute top-2 right-2 rounded text-xs text-red-600 hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+          aria-busy={isPending}
+          disabled={isPending}
+          className="absolute top-2 right-2 rounded text-xs text-red-600 hover:underline focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 disabled:opacity-50"
         >
-          Delete
+          {isPending ? 'Deleting…' : 'Delete'}
         </button>
       </div>
     </Link>

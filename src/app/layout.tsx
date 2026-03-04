@@ -47,19 +47,35 @@ export const metadata: Metadata = {
 import { DynamicJsonLd } from '@/shared/ui/DynamicJsonLd'
 import { Suspense } from 'react'
 
-const RootLayout = ({
+import { I18nProvider } from '@/lib/i18n/client'
+import { getDictionary } from '@/lib/i18n/dictionaries'
+import { getLocale } from '@/lib/i18n/server'
+
+const I18nWrapper = async ({ children }: { children: ReactNode }) => {
+  const locale = await getLocale()
+  const dictionary = getDictionary(locale)
+
+  return <I18nProvider dictionary={dictionary}>{children}</I18nProvider>
+}
+
+const RootLayout = async ({
   children,
 }: Readonly<{
   children: ReactNode
 }>) => {
+  const locale = await getLocale()
   return (
-    <html lang="en">
-      <body className={inter.className} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
+      <body className={inter.className}>
         <Suspense fallback={null}>
-          <DynamicJsonLd />
+          <I18nWrapper>
+            <Suspense fallback={null}>
+              <DynamicJsonLd />
+            </Suspense>
+            {children}
+            <div id="modal-root" />
+          </I18nWrapper>
         </Suspense>
-        {children}
-        <div id="modal-root" />
       </body>
     </html>
   )

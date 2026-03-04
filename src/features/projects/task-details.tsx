@@ -1,11 +1,8 @@
-import { Suspense } from 'react'
-
 import Attachments from '@/features/attachments/attachments'
 import { getAttachments } from '@/features/attachments/data'
 import Comments from '@/features/comments/comments'
 import { getComments } from '@/features/comments/data'
 import { getSession } from '@/lib/auth'
-import { CommentsSkeleton } from '@/shared/ui/Skeleton'
 
 import { getTaskDetails } from './data'
 
@@ -48,14 +45,12 @@ const TaskDetails = async ({
 
       <hr className="my-6" />
 
-      <Suspense fallback={<CommentsSkeleton />}>
-        <Comments
-          taskId={taskId}
-          comments={comments}
-          user={session.user}
-          activeOrgId={session.activeOrgId}
-        />
-      </Suspense>
+      <Comments
+        taskId={taskId}
+        comments={comments}
+        user={session.user}
+        activeOrgId={session.activeOrgId}
+      />
     </div>
   )
 }

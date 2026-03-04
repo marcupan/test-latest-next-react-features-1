@@ -1,7 +1,6 @@
 'use server'
 
-import { hash } from 'bcryptjs'
-import { randomBytes } from 'crypto'
+import { createHmac, randomBytes } from 'crypto'
 import { updateTag } from 'next/cache'
 
 import { checkPermission, getSession } from '@/lib/auth'
@@ -68,7 +67,9 @@ export const createShareToken = async (
       .execute()
 
     const token = randomBytes(TOKEN_BYTES).toString('hex')
-    const tokenHash = await hash(token, 10)
+    const tokenHash = createHmac('sha256', process.env.SESSION_SECRET!)
+      .update(token)
+      .digest('hex')
 
     await db
       .insertInto('share_tokens')
